@@ -1,0 +1,16 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+	precomposeunicode = true
+[remote "origin"]
+	url = https://github.com/jannunzi/webdev-northeastern.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "2017-summer-2"]
+	remote = origin
+	merge = refs/heads/2017-summer-2
+[remote "github"]
+	url = https://github.com/prasadtajane/tajane-prasad-webdev.git
+	fetch = +refs/heads/*:refs/remotes/github/*
