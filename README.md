@@ -1,8 +1,12 @@
 # web-dev-template
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
-1. npm install
-1. mongod
-1. node server.js
-1. browse to localhost:3000
+I am Prasad Tajane and am currently pursuing Masters in Computer Science at Northeastern University.
+I have two years of experience working as a Software Developer in a multinational investment firm, Nomura, at Mumbai, India.
+In the tenure, I gained hands on experience on the powerful algorithmic trading technique also known as ‘High Frequency Trading’
+and it bestowed me with the skills required for the implementation of real time application of algorithms.
+The experience honed my Problem Solving, Coding and Logical & Structured Thinking skills.
+
+The repository is for the the 'Web Development' course
+
+Heroku :- https://dashboard.heroku.com/apps/tajane-prasad-web-dev
+Git    :- https://github.com/prasadtajane/tajane-prasad-web-dev
