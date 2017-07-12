@@ -8,5 +8,12 @@ The experience honed my Problem Solving, Coding and Logical & Structured Thinkin
 
 The repository is for the the 'Web Development' course
 
-Heroku :- https://dashboard.heroku.com/apps/tajane-prasad-web-dev
-Git    :- https://github.com/prasadtajane/tajane-prasad-web-dev
+
+Heroku     :-  https://dashboard.heroku.com/apps/tajane-prasad-web-dev
+
+Git        :-  https://github.com/prasadtajane/tajane-prasad-web-dev
+
+
+Project    :-  https://tajane-prasad-web-dev.herokuapp.com/project/index.html
+
+Assignment :-  https://tajane-prasad-web-dev.herokuapp.com/assignment/
