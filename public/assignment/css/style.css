@@ -1,0 +1,13 @@
+input,textarea   {
+    margin-bottom: 5px
+}
+
+body {
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+
+.navbar-default {
+    background-color: #09bde8;
+    border-color: #18f306;
+}
