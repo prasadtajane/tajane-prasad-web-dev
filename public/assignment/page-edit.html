@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit Website</title>
+    <title>Edit Page</title>
     <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="navbar-header col-xs-10">
                 <a class="navbar-brand" href="#">
-                    Edit Website
+                    Edit Page
                 </a>
             </div>
 
@@ -47,7 +47,7 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-sm-10">
-                            Wikipedia
+                            Blog Post
                         </div>
                         <div class="col-xs-2">
                             <a href="#" class="navbar-link pull-right">
@@ -60,7 +60,7 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Facebook
+                            Blog
                         </div>
                         <div class="col-xs-2">
                             <a href="#" class="navbar-link pull-right">
@@ -72,7 +72,7 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Twitter
+                            Home
                         </div>
                         <div class="col-xs-2">
                             <a href="#" class="navbar-link pull-right">
@@ -84,7 +84,19 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Amazon
+                            About
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#  " class="navbar-link pull-right">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            Contact Us
                         </div>
                         <div class="col-xs-2">
                             <a href="#  " class="navbar-link pull-right">
@@ -103,30 +115,26 @@
         </div>
 
         <div class="col-xs-12 col-lg-9 taj-col-lg-9">
-            <label for="websiteName">Website Name</label>
+            <label for="pageName">Page Name</label>
             <input class="form-control"
-                   id="websiteName"
-                   name="websiteName"
+                   id="pageName"
+                   name="pageName"
                    value="Blogger"/>
 
-            <label for="description">Description</label>
+            <label for="pageDescription">Description</label>
             <textarea class="form-control"
-                      id="description"
-                      name="description"
+                      id="pageDescription"
+                      name="pageDescription"
 
                       rows="5">ABCDEFGHIJKLMNOPQRSTUVWXYZ
 abcdefghijklmnopqrstuvwxyz></textarea>
 
             <a class="btn btn-default btn-primary btn-block"
-               href="website-list.html"
+               href="page-list.html"
                role="button">Update</a>
 
-            <a class="btn btn-default btn-success btn-block"
-               href="page-list.html"
-               role="button">Pages</a>
-
             <a class="btn btn-default btn-danger btn-block"
-               href="website-list.html"
+               href="page-list.html"
                role="button">Delete</a>
         </div>
 
@@ -137,10 +145,9 @@ abcdefghijklmnopqrstuvwxyz></textarea>
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
                 <a class="navbar-link" href="page-list.html">
-                    <span class="glyphicon glyphicon-forward"></span>
+                    <span class="glyphicon glyphicon-backward"></span>
                 </a>
             </div>
-
             <div class="navbar-text pull-right">
                 <a class="navbar-link" href="profile.html">
                     <span class="glyphicon glyphicon-user"></span>
