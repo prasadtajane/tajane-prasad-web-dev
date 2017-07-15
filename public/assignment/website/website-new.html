@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Build Website</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css"
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css"
           rel="stylesheet">
-    <link href="css/style.css"
+    <link href="../css/style.css"
           rel="stylesheet">
 </head>
 
@@ -13,14 +13,21 @@
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header col-xs-10">
+
+            <div class="navbar-text pull-left">
+                <a class="navbar-link" href="#">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header col-xs-11 col-sm-5">
                 <a class="navbar-brand" href="#">
                     New Website
                 </a>
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#">
+                <a class="navbar-link" href="website-list.html">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -48,10 +55,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-sm-10">
-                            Wikipedia
+                            <a class="navbar-link" href="../page/page-list.html">
+                                Wikipedia
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -61,10 +70,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Facebook
+                            <a class="navbar-link" href="../page/page-list.html">
+                                Facebook
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href=".website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -73,10 +84,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Twitter
+                            <a class="navbar-link" href="../page/page-list.html">
+                                Twitter
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -85,10 +98,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Amazon
+                            <a class="navbar-link" href="../page/page-list.html">
+                                Amazon
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#  " class="navbar-link pull-right">
+                            <a href="website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -104,13 +119,13 @@
         </div>
 
         <div class="col-xs-12 col-lg-9 taj-col-lg-9">
-            <label for="websiteName">Website Name</label>
+            <label for="websiteName">  Name</label>
             <input class="form-control"
                    id="websiteName"
                    name="websiteName"
                    placeholder="Facebook"/>
 
-            <label for="description">Description</label>
+            <label for="description">  Description</label>
             <textarea class="form-control"
                       id="description"
                       name="description"
@@ -122,7 +137,7 @@
                role="button">Create</a>
 
             <a class="btn btn-default btn-success btn-block"
-               href="page-list.html"
+               href="../page/page-list.html"
                role="button">Pages</a>
 
             <a class="btn btn-default btn-danger btn-block"
@@ -138,12 +153,12 @@
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
-                <a class="navbar-link" href="page-list.html">
+                <a class="navbar-link" href="../page/page-list.html">
                     <span class="glyphicon glyphicon-forward"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="profile.html">
+                <a class="navbar-link" href="../user/profile.html">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

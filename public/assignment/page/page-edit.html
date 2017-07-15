@@ -3,23 +3,30 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Edit Website</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <title>Edit Page</title>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header col-xs-10">
+
+            <div class="navbar-text pull-left">
+                <a class="navbar-link" href="#">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header col-xs-11 col-sm-5">
                 <a class="navbar-brand" href="#">
-                    Edit Website
+                    Edit Page
                 </a>
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#">
+                <a class="navbar-link" href="page-list.html">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -36,7 +43,7 @@
                             Name
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="page-new.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-plus white"></span>
                             </a>
                         </div>
@@ -47,7 +54,9 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-sm-10">
-                            Wikipedia
+                            <a href="../widget/widget-list.html">
+                                Blog Post
+                            </a>
                         </div>
                         <div class="col-xs-2">
                             <a href="#" class="navbar-link pull-right">
@@ -60,7 +69,9 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Facebook
+                            <a href="../widget/widget-list.html">
+                                Blog
+                            </a>
                         </div>
                         <div class="col-xs-2">
                             <a href="#" class="navbar-link pull-right">
@@ -72,7 +83,9 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Twitter
+                            <a href="../widget/widget-list.html">
+                                Home
+                            </a>
                         </div>
                         <div class="col-xs-2">
                             <a href="#" class="navbar-link pull-right">
@@ -84,10 +97,26 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Amazon
+                            <a href="../widget/widget-list.html">
+                                About
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#  " class="navbar-link pull-right">
+                            <a href="#" class="navbar-link pull-right">
+                                <span class="glyphicon glyphicon-cog"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <a href="../widget/widget-list.html">
+                                Contact Us
+                            </a>
+                        </div>
+                        <div class="col-xs-2">
+                            <a href="#" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -103,30 +132,29 @@
         </div>
 
         <div class="col-xs-12 col-lg-9 taj-col-lg-9">
-            <label for="websiteName">Website Name</label>
+            <label for="pageName"> Name</label>
             <input class="form-control"
-                   id="websiteName"
-                   name="websiteName"
+                   id="pageName"
+                   name="pageName"
                    value="Blogger"/>
 
-            <label for="description">Description</label>
+            <label for="pageDescription">Title</label>
             <textarea class="form-control"
-                      id="description"
-                      name="description"
+                      id="pageDescription"
+                      name="pageDescription"
 
-                      rows="5">ABCDEFGHIJKLMNOPQRSTUVWXYZ
-abcdefghijklmnopqrstuvwxyz></textarea>
+                      rows="1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</textarea>
 
             <a class="btn btn-default btn-primary btn-block"
-               href="website-list.html"
+               href="page-list.html"
                role="button">Update</a>
 
             <a class="btn btn-default btn-success btn-block"
-               href="page-list.html"
-               role="button">Pages</a>
+               href="../widget/widget-list.html"
+               role="button">Widgets</a>
 
             <a class="btn btn-default btn-danger btn-block"
-               href="website-list.html"
+               href="page-list.html"
                role="button">Delete</a>
         </div>
 
@@ -137,12 +165,11 @@ abcdefghijklmnopqrstuvwxyz></textarea>
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
                 <a class="navbar-link" href="page-list.html">
-                    <span class="glyphicon glyphicon-forward"></span>
+                    <span class="glyphicon glyphicon-backward"></span>
                 </a>
             </div>
-
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="profile.html">
+                <a class="navbar-link" href="../user/profile.html">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

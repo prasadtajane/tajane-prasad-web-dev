@@ -1,33 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Build Page</title>
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-    <link href="css/style.css"
-          rel="stylesheet">
+    <title>Edit Website</title>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
-            <div class="navbar-header col-xs-10">
+
+            <div class="navbar-text pull-left">
+                <a class="navbar-link" href="#">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+            </div>
+
+            <div class="navbar-header col-xs-11 col-sm-5">
                 <a class="navbar-brand" href="#">
-                    New Page
+                    Edit Website
                 </a>
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="#">
+                <a class="navbar-link" href="website-list.html">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
         </div>
     </nav>
 
-    <div class="container-fluid ">
+    <div class="container-fluid">
 
         <div class="col-xs-3 visible-lg taj-col-xs-3">
             <ul class="list-group">
@@ -37,7 +43,7 @@
                             Name
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="website-new.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-plus white"></span>
                             </a>
                         </div>
@@ -48,10 +54,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-sm-10">
-                            Blog Post
+                            <a class="navbar-link" href="../page/page-list.html">
+                                Wikipedia
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -61,10 +69,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Blog
+                            <a class="navbar-link" href="../page/page-list.html">
+                                Facebook
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -73,10 +83,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            Home
+                            <a class="navbar-link" href="../page/page-list.html">
+                                Twitter
+                            </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -85,22 +97,12 @@
                 <li class="list-group-item">
                     <div class="row">
                         <div class="col-xs-10">
-                            About
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="#  " class="navbar-link pull-right">
-                                <span class="glyphicon glyphicon-cog"></span>
+                            <a class="navbar-link" href="../page/page-list.html">
+                                Amazon
                             </a>
                         </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            Contact Us
-                        </div>
                         <div class="col-xs-2">
-                            <a href="#  " class="navbar-link pull-right">
+                            <a href="website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -116,47 +118,51 @@
         </div>
 
         <div class="col-xs-12 col-lg-9 taj-col-lg-9">
-            <label for="pageName">Page Name</label>
+            <label for="websiteName"> Name</label>
             <input class="form-control"
-                   id="pageName"
-                   name="pageName"
-                   placeholder="Facebook"/>
+                   id="websiteName"
+                   name="websiteName"
+                   value="Blogger"/>
 
-            <label for="pageDescription">Description</label>
+            <label for="description"> Description</label>
             <textarea class="form-control"
-                      id="pageDescription"
-                      name="pageDescription"
-                      rows="5"
-                      placeholder="Write something about the page."></textarea>
+                      id="description"
+                      name="description"
+
+                      rows="5">ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz></textarea>
 
             <a class="btn btn-default btn-primary btn-block"
-               href="page-list.html"
-               role="button">Create</a>
+               href="website-list.html"
+               role="button">Update</a>
+
+            <a class="btn btn-default btn-success btn-block"
+               href="../page/page-list.html"
+               role="button"> Pages</a>
 
             <a class="btn btn-default btn-danger btn-block"
-               href="page-list.html"
-               role="button">Cancel</a>
+               href="website-list.html"
+               role="button">Delete</a>
         </div>
-
 
     </div>
 
-    <body>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
-                <a class="navbar-link" href="page-list.html">
-                    <span class="glyphicon glyphicon-backward"></span>
+                <a class="navbar-link" href="../page/page-list.html">
+                    <span class="glyphicon glyphicon-forward"></span>
                 </a>
             </div>
+
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="profile.html">
+                <a class="navbar-link" href="../user/profile.html">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>
     </nav>
-
 </body>
+
 </html>
