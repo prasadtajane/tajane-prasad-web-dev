@@ -132,19 +132,25 @@
         </div>
 
         <div class="col-xs-12 col-lg-9 taj-col-lg-9">
-            <label for="pageName"> Name</label>
-            <input class="form-control"
-                   id="pageName"
-                   name="pageName"
-                   value="Blogger"/>
+            <form>
 
-            <label for="pageDescription">Title</label>
-            <textarea class="form-control"
-                      id="pageDescription"
-                      name="pageDescription"
+                <div class="form-group">
+                    <label for="pageName"> Name</label>
+                    <input class="form-control"
+                           id="pageName"
+                           name="pageName"
+                           value="Blogger"/>
+                </div>
 
-                      rows="1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</textarea>
+                <div class="form-group">
+                    <label for="pageDescription">Title</label>
+                    <textarea class="form-control"
+                              id="pageDescription"
+                              name="pageDescription"
 
+                              rows="1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</textarea>
+                </div>
+            </form>
             <a class="btn btn-default btn-primary btn-block"
                href="page-list.html"
                role="button">Update</a>
@@ -156,6 +162,7 @@
             <a class="btn btn-default btn-danger btn-block"
                href="page-list.html"
                role="button">Delete</a>
+
         </div>
 
     </div>

@@ -75,7 +75,7 @@
                             </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href=".website-edit.html" class="navbar-link pull-right">
+                            <a href="website-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -119,19 +119,20 @@
         </div>
 
         <div class="col-xs-12 col-lg-9 taj-col-lg-9">
-            <label for="websiteName">  Name</label>
-            <input class="form-control"
-                   id="websiteName"
-                   name="websiteName"
-                   placeholder="Facebook"/>
+            <form>
+                <label for="websiteName">  Name</label>
+                <input class="form-control"
+                       id="websiteName"
+                       name="websiteName"
+                       placeholder="Facebook"/>
 
-            <label for="description">  Description</label>
-            <textarea class="form-control"
-                      id="description"
-                      name="description"
-                      rows="5"
-                      placeholder="Write something about the page."></textarea>
-
+                <label for="description">  Description</label>
+                <textarea class="form-control"
+                          id="description"
+                          name="description"
+                          rows="5"
+                          placeholder="Write something about the page."></textarea>
+            </form>
             <a class="btn btn-default btn-primary btn-block"
                href="website-list.html"
                role="button">Create</a>
@@ -139,7 +140,6 @@
             <a class="btn btn-default btn-success btn-block"
                href="../page/page-list.html"
                role="button">Pages</a>
-
             <a class="btn btn-default btn-danger btn-block"
                href="website-list.html"
                role="button">Cancel</a>
@@ -147,8 +147,6 @@
 
 
     </div>
-
-    <body>
 
     <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">

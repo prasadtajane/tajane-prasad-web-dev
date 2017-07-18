@@ -20,6 +20,10 @@ function loginController($scope) {
                 $scope.message = user.username;
             }
         }
+        if($scope.message)  {
+            alert("Welcome back " + user.username + " !!!");
+        }
+        else alert(user.username + " Not Found !!!");
         //alert("Welcome " +  user.username + " !!!");
     })
 }
