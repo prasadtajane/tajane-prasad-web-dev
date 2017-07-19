@@ -1,4 +1,19 @@
-<nav class="navbar taj-navbar-default navbar-fixed-top" xmlns="http://www.w3.org/1999/html">
+<!DOCTYPE html>
+<html lang="en" ng-app="WamApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="../css/style.css"
+          rel="stylesheet">
+
+    <script src="../../vendor/angular/angular.min.js"></script>
+    <script src="../app.js"></script>
+</head>
+
+<body>
+    <nav class="navbar taj-navbar-default navbar-fixed-top">
         <div class="navbar-brand">
             Login
         </div>
@@ -7,9 +22,8 @@
     <div ng-controller="loginController">
         <div class="container-fluid">
 
-            <div ng-show="message" class="alert alert-danger">
-                {{message}}</br>
-                Please try again...
+            <div ng-show="message" class="alert alert-success">
+                {{message}}
             </div>
 
             <label for="username">Userame</label>
@@ -28,12 +42,12 @@
                    placeholder="qwe123"/>
 
             <a class="btn btn-default btn-primary btn-block"
-               role="button"
-               ng-click="login(user)">
+               href="profile.html"
+               role="button" ng-click="login(user)">
                 Login</a>
 
             <a class="btn btn-default btn-success btn-block"
-               ng-click="register()"
+               href="register.html"
                role="button">Register</a>
         </div>
     </div>
@@ -43,3 +57,5 @@
             Neu App
         </div>
     </nav>
+</body>
+</html>

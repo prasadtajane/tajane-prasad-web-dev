@@ -1,6 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Build Page</title>
+    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <link href="../css/style.css"
+          rel="stylesheet">
+</head>
 
+<body>
 
-    <nav class="navbar taj-navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
@@ -11,7 +22,7 @@
 
             <div class="navbar-header col-xs-11 col-sm-5">
                 <a class="navbar-brand" href="#">
-                    Edit Page
+                    New Page
                 </a>
             </div>
 
@@ -23,7 +34,7 @@
         </div>
     </nav>
 
-    <div class="container-fluid">
+    <div class="container-fluid ">
 
         <div class="col-xs-3 visible-lg taj-col-xs-3">
             <ul class="list-group">
@@ -33,7 +44,7 @@
                             Name
                         </div>
                         <div class="col-xs-2">
-                            <a href="page-new.html" class="navbar-link pull-right">
+                            <a href="#" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-plus white"></span>
                             </a>
                         </div>
@@ -49,7 +60,7 @@
                             </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="page-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -64,7 +75,7 @@
                             </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="page-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -78,7 +89,7 @@
                             </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="page-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -92,7 +103,7 @@
                             </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="page-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -106,7 +117,7 @@
                             </a>
                         </div>
                         <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
+                            <a href="page-edit.html" class="navbar-link pull-right">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                         </div>
@@ -129,7 +140,7 @@
                     <input class="form-control"
                            id="pageName"
                            name="pageName"
-                           value="Blogger"/>
+                           placeholder="Facebook"/>
                 </div>
 
                 <div class="form-group">
@@ -137,13 +148,14 @@
                     <textarea class="form-control"
                               id="pageDescription"
                               name="pageDescription"
-
-                              rows="1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</textarea>
+                              rows="1"
+                              placeholder="Write something about the page."></textarea>
                 </div>
             </form>
+
             <a class="btn btn-default btn-primary btn-block"
                href="page-list.html"
-               role="button">Update</a>
+               role="button">Create</a>
 
             <a class="btn btn-default btn-success btn-block"
                href="../widget/widget-list.html"
@@ -151,14 +163,14 @@
 
             <a class="btn btn-default btn-danger btn-block"
                href="page-list.html"
-               role="button">Delete</a>
+               role="button">Cancel</a>
 
         </div>
 
+
     </div>
 
-
-    <nav class="navbar taj-navbar-default navbar-fixed-bottom">
+    <nav class="navbar navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
                 <a class="navbar-link" href="page-list.html">
@@ -172,6 +184,6 @@
             </div>
         </div>
     </nav>
-</body>
 
+</body>
 </html>
