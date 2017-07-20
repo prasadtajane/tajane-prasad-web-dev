@@ -9,34 +9,28 @@
         .module("WamApp")
         .controller("loginController", loginController)
 
-    var users = [
-        {_id: "123", username: "alice", password:"alice", firstname:"aLicE", lastname:"wonderLanD"},
-        {_id: "345", username: "bob", password:"bob", firstname:"bob", lastname:"marley"}
-    ];
+    function loginController($location, userService) {
 
-    function loginController($scope, $location) {
+        var model = this;
+        model.login = login;
 
-        $scope.login = (function (user) {
+        function login(user) {
 
-            $scope.valid = false;
-            for (u in users) {
-                if (user.username === users[u].username && user.password === users[u].password) {
-                    $scope.valid = true;
-                    $location.url("/profile/" + users[u]._id);
-                }
-            }
-            if ($scope.valid) {
-                /*$scope.message = "Welcome back " + user.username + " !!!";
-                 alert($scope.message);*/
+            var inuser = userService.findUserByUsernameAndPassword(user.username, user.password);
+
+            if (inuser == null) {
+                model.message = "Incorrect credentials for user '" + user.username + "' !!!";
+                alert(model.message);
             }
             else {
-                $scope.message = "Incorrect credentials for user '" + user.username + "' !!!";
-                alert($scope.message);
+                model.message = "Welcome back " + inuser.username + " !!!";
+                //alert("user is " + inuser.username +" "+inuser.password+inuser._id);
+                $location.url("/profile/" + inuser._id);
             }
 
-        })
+        }
 
-        $scope.register = (function () {
+        model.register = (function () {
             $location.url("/register");
         })
     }

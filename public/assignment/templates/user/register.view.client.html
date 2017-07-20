@@ -11,6 +11,7 @@
         <label for="username">Userame</label>
         <input class="form-control"
                id="username"
+               ng-model="user.username"
                name="username"
                placeholder="alice"/>
 
@@ -18,6 +19,7 @@
         <input class="form-control"
                id="password"
                name="password"
+               ng-model="user.password1"
                type="password"
                placeholder="qwe123"/>
 
@@ -25,11 +27,12 @@
         <input class="form-control"
                id="re_password"
                name="re_password"
+               ng-model="user.password2"
                type="password"
                placeholder="qwe123"/>
 
         <a class="btn btn-default btn-primary btn-block"
-           href="#!/profile"
+           ng-click="model.register(user)"
            role="button">Register</a>
 
         <a class="btn btn-default btn-danger btn-block"

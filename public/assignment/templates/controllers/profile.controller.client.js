@@ -9,20 +9,42 @@
         .module("WamApp")
         .controller("profileController", profileController)
 
-    var users = [
-        {_id: "123", username: "alice", password:"alice", firstname:"aLicE", lastname:"wonderLanD"},
-        {_id: "345", username: "bob", password:"bob", firstname:"bob", lastname:"marley"}
-    ];
+    function profileController($routeParams, $location, userService) {
 
-    function profileController($scope, $routeParams) {
-        var uId = $routeParams.userId;
-        for (u in users)    {
-            if (users[u]._id === uId)   {
-                $scope.user = users[u];
+        var model = this;
+        var searchProfile = searchProfile;
+        //var updateUser = updateUser;
+        model.updateUser = updateUser;
+        model.deleteUser = deleteUser;
 
-                $scope.message = "Welcome back '" + users[u].username + "' !!!";
-                alert($scope.message);
+        var uId = $routeParams["userId"];
+
+        function init() {
+            model.user = userService.findUserById(uId);
+        }
+        init();
+
+        function searchProfile() {
+            if (model.user === null)   {
+                model.message = "Incorrect id  '" + uId + "' !!!";
+                alert(model.message);
             }
+            else    {
+                //alert(model.user);
+                return model.user.username;
+            }
+        }
+        searchProfile();
+
+        function updateUser(user) {
+            userService.updateUserByUserId(user, uId);
+
+        }
+
+        function deleteUser(user) {
+            userService.deleteUserByUserId(uId);
+            alert("Thank you for your patience, user with username '" + user.username + "' has been removed!");
+            $location.url("/login");
         }
     }
 
