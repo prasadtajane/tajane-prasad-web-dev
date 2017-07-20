@@ -15,11 +15,11 @@
     function configuration($routeProvider)   {
         $routeProvider
             .when("/login", {
-                templateUrl: "templates/user/login.view.client.html"})
+                templateUrl: "../user/view/login.view.client.html"})
             .when("/profile/:userId", {
-                templateUrl: "templates/user/profile.view.client.html"})
+                templateUrl: "../user/view/profile.view.client.html"})
             .when("/register", {
-                templateUrl: "templates/user/register.view.client.html"})
+                templateUrl: "../user/view/register.view.client.html"})
     }
 
     var users = [

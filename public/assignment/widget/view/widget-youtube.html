@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Widget Heading</title>
-    <link href="../../vendor/bootstrap/dist/css/bootstrap.min.css"
+    <title>Widget Youtube</title>
+    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css"
           rel="stylesheet">
-    <link href="../css/style.css"
+    <link href="../../css/style.css"
           rel="stylesheet">
 </head>
 
@@ -22,7 +22,7 @@
 
             <div class="navbar-header col-xs-11 col-sm-5">
                 <a class="navbar-brand" href="#">
-                    Heading Widget
+                    Youtube Widget
                 </a>
             </div>
 
@@ -171,12 +171,12 @@
                                 <span class="glyphicon glyphicon-play"></span>
                             </a>
 
-                            <a class="navbar-link" href="../page/page-list.html">
+                            <a class="navbar-link" href="../../page/view/page-list.html">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                             </a>
                         </div>
                         <div class="navbar-text pull-right">
-                            <a class="navbar-link" href="../templates/user/profile.view.client.html">
+                            <a class="navbar-link" href="../../../user/view/profile.view.client.html">
                                 <span class="glyphicon glyphicon-user"></span>
                             </a>
                         </div>
@@ -187,34 +187,38 @@
             <div class="col-xs-12 taj-col-lg-9">
                 <form>
 
-                    <label for="headerName">Name</label>
+                    <label for="youtubeName">Name</label>
                     <input class="form-control"
-                           id="headerName"
-                           name="headerName"
-                           value="US News"/>
+                           id="youtubeName"
+                           name="youtubeName"
+                           value="Sir Ken Robinson"/>
 
-                    <label for="headerText">Text</label>
+                    <label for="youtubeText">Text</label>
                     <input class="form-control"
-                           id="headerText"
-                           name="headerText"
+                           id="youtubeText"
+                           name="youtubeText"
                            type="text"
-                           value="Sudden surge in Nasdaq index"/>
+                           value="Do schools kill creativity?"/>
 
-                    <label for="headerSize">Size</label>
-                    <select class="form-control"
-                            name="headerSize"
-                            id="headerSize">
-                        <option>1(Smallest)</option>
-                        <option>2(Small)</option>
-                        <option>3(Medium)</option>
-                        <option>4(Large)</option>
-                        <option>5(Largest)</option>
-                    </select>
+                    <label for="youtubeUrl">URL</label>
+                    <input class="form-control"
+                           id="youtubeUrl"
+                           name="youtubeUrl"
+                           type="url"
+                           value="https://www.youtube.com/watch?v=Wg7v8YIu5Ms"/>
+
+                    <label for="youtubeWidth">Width</label>
+                    <input class="form-control"
+                           id="youtubeWidth"
+                           name="youtubeWidth"
+                           type="number"
+                           placeholder="3"/>
 
                 </form>
                 <a class="btn btn-default btn-danger btn-block"
                    href="widget-list.html"
-                   role="button">Delete</a>
+                   role="button">Delete
+                </a>
 
             </div>
         </div>
@@ -230,11 +234,11 @@
                     </a>
                 </div>
                 <div class="navbar-text pull-right">
-                    <a class="navbar-link" href="../templates/user/profile.view.client.html">
+                    <a class="navbar-link" href="../../../user/view/profile.view.client.html">
                         <span class="glyphicon glyphicon-user"></span>
                     </a>
                 </div>
-        </div>
+            </div>
         </div>
     </nav>
 

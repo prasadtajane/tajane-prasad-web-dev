@@ -17,6 +17,8 @@
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
 
+        model.findWebsites = findWebsites;
+
         var uId = $routeParams["userId"];
 
         function init() {
@@ -45,6 +47,10 @@
             userService.deleteUserByUserId(uId);
             alert("Thank you for your patience, user with username '" + user.username + "' has been removed!");
             $location.url("/login");
+        }
+
+        function findWebsites() {
+            $location.url("/profile/" + uId + "/websites");
         }
     }
 
