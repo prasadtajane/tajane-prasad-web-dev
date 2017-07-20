@@ -12,22 +12,24 @@
     function configuration($routeProvider)   {
         $routeProvider
             .when("/login", {
-                templateUrl: "../user/view/login.view.client.html",
+                templateUrl: "./user/view/login.view.client.html",
                 controller: "loginController",
                 controllerAs: "model"
             })
             .when("/profile/:userId", {
-                templateUrl: "../user/view/profile.view.client.html",
+                templateUrl: "./user/view/profile.view.client.html",
                 controller: "profileController",
                 controllerAs: "model"
             })
             .when("/register", {
-                templateUrl: "../user/view/register.view.client.html",
+                templateUrl: "./user/view/register.view.client.html",
                 controller: "registerController",
                 controllerAs: "model"
             })
             .when("/profile/:userId/websites", {
-                templateUrl:"website/view/website-list.html"
+                templateUrl:"website/view/website-list.view.client.html",
+                controller: "weblistController",
+                controllerAs: "model"
             })
     }
 
