@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Build Website</title>
-    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-    <link href="../../css/style.css"
-          rel="stylesheet">
-</head>
 
-<body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar taj-navbar-default navbar-fixed-top">
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="website-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToWebsiteList()">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -27,7 +17,8 @@
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="website-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.create(model.website)">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -66,55 +57,6 @@
                         </div>
                     </div>
                 </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a class="navbar-link" href="../../page/view/page-list.view.client.html">
-                                Facebook
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="website-edit.view.client.html" class="navbar-link pull-right">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a class="navbar-link" href="../../page/view/page-list.view.client.html">
-                                Twitter
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="website-edit.view.client.html" class="navbar-link pull-right">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a class="navbar-link" href="../../page/view/page-list.view.client.html">
-                                Amazon
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="website-edit.view.client.html" class="navbar-link pull-right">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <!--<li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>-->
             </ul>
         </div>
 
@@ -124,44 +66,45 @@
                 <input class="form-control"
                        id="websiteName"
                        name="websiteName"
+                       ng-model="model.website.name"
                        placeholder="Facebook"/>
 
                 <label for="description">  Description</label>
                 <textarea class="form-control"
                           id="description"
                           name="description"
+                          ng-model="model.website.description"
                           rows="5"
                           placeholder="Write something about the page."></textarea>
             </form>
             <a class="btn btn-default btn-primary btn-block"
-               href="website-list.view.client.html"
+               ng-click="model.create(model.website)"
                role="button">Create</a>
 
             <a class="btn btn-default btn-success btn-block"
-               href="../../page/view/page-list.view.client.html"
+               ng-click="model.findPages()"
                role="button">Pages</a>
             <a class="btn btn-default btn-danger btn-block"
-               href="website-list.view.client.html"
+               ng-click="model.backToWebsiteList()"
                role="button">Cancel</a>
         </div>
 
 
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar taj-navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
-                <a class="navbar-link" href="../../page/view/page-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToWebsiteList()">
                     <span class="glyphicon glyphicon-forward"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/view/profile.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToProfile()">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>
     </nav>
-
-</body>
-</html>

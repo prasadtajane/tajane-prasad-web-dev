@@ -51,7 +51,7 @@
         }
 
         function findWebsites() {
-            $location.url("/profile/" + uId + "/websites");
+            $location.url("/profile/" + uId + "/website");
         }
     }
 

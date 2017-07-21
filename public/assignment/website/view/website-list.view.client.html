@@ -3,7 +3,8 @@
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="../../user/view/profile.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToProfile()">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -36,7 +37,8 @@
                         Visists
                     </div>
                     <div class="col-xs-2">
-                        <a href="website-new.view.client.html" class="navbar-link pull-right">
+                        <a ng-click="model.createNewWebsite()"
+                           class="navbar-link pull-right">
                             <span class="glyphicon glyphicon-plus white"></span>
                         </a>
                     </div>
@@ -57,7 +59,8 @@
                         {{website.visited}}
                     </div>
                     <div class="col-xs-2">
-                        <a href="website-edit.view.client.html" class="navbar-link pull-right">
+                        <a class="navbar-link pull-right"
+                           ng-click="model.editWebsite(website.name)">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </div>
@@ -71,7 +74,8 @@
     <nav class="navbar taj-navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/view/profile.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToProfile()">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
