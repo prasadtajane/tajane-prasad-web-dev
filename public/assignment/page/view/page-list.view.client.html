@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pages</title>
-    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-    <link href="../../css/style.css"
-          rel="stylesheet">
-</head>
 
-<body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar taj-navbar-default navbar-fixed-top">
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="../../website/view/website-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToWebsiteList()">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -49,7 +39,8 @@
                         Visists
                     </div>
                     <div class="col-xs-2">
-                        <a href="page-new.view.client.html" class="navbar-link pull-right">
+                        <a class="navbar-link pull-right"
+                           ng-click="model.createNewPage()">
                             <span class="glyphicon glyphicon-plus white"></span>
                         </a>
                     </div>
@@ -57,108 +48,29 @@
             </li>
 
 
-            <li class="list-group-item">
+            <li class="list-group-item"
+                ng-repeat="page in model.pageList">
                 <div class="row">
                     <div class="col-xs-4 col-sm-5">
                         <a href="../../widget/view/widget-list.view.client.html">
-                            Blog Post
+                            {{page.name}}
                         </a>
                     </div>
                     <div class="col-sm-3 col-xs-6">
-                        2017-07-11
+                        {{page.updated}}
                     </div>
                     <div class="col-sm-2 hidden-xs">
-                        100890
+                        {{page.visited}}
                     </div>
                     <div class="col-xs-2">
-                        <a href="page-edit.view.client.html" class="navbar-link pull-right">
+                        <a class="navbar-link pull-right"
+                           ng-click="model.editPage(page.name)">
                             <span class="glyphicon glyphicon-cog"></span>
                         </a>
                     </div>
                 </div>
             </li>
-
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-4 col-sm-5">
-                        <a href="../../widget/view/widget-list.view.client.html">
-                            Blog
-                        </a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        2017-07-11
-                    </div>
-                    <div class="col-sm-2 hidden-xs">
-                        100890
-                    </div>
-                    <div class="col-xs-2">
-                        <a href="page-edit.view.client.html" class="navbar-link pull-right">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-4 col-sm-5">
-                        <a href="../../widget/view/widget-list.view.client.html">
-                            Home
-                        </a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        2017-07-11
-                    </div>
-                    <div class="col-sm-2 hidden-xs">
-                        100890
-                    </div>
-                    <div class="col-xs-2">
-                        <a href="page-edit.view.client.html" class="navbar-link pull-right">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-4 col-sm-5">
-                        <a href="../../widget/view/widget-list.view.client.html">
-                            About
-                        </a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        2017-07-11
-                    </div>
-                    <div class="col-sm-2 hidden-xs">
-                        100890
-                    </div>
-                    <div class="col-xs-2">
-                        <a href="page-edit.view.client.html" class="navbar-link pull-right">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-4 col-sm-5">
-                        <a href="../../widget/view/widget-list.view.client.html">
-                            Contact Us
-                        </a>
-                    </div>
-                    <div class="col-sm-3 col-xs-6">
-                        2017-07-11
-                    </div>
-                    <div class="col-sm-2 hidden-xs">
-                        100890
-                    </div>
-                    <div class="col-xs-2">
-                        <a href="page-edit.view.client.html" class="navbar-link pull-right">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
+            <!--{{model.pageList}}-->
 
         </ul>
 
@@ -167,7 +79,7 @@
 
 
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar taj-navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
                 <a class="navbar-link" href="../../website/view/website-list.view.client.html">
@@ -175,12 +87,10 @@
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/view/profile.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToProfile()">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>
     </nav>
-
-</body>
-</html>

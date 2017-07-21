@@ -46,7 +46,7 @@
         function findWebsiteByName(websiteName) {
             for (var w in websites) {
                 if (websites[w].name === websiteName)    {
-                    alert(websites[w]._id + "" + websites[w].name)
+                    //alert(websites[w]._id + "" + websites[w].name)
                     return websites[w];
                 }
             }

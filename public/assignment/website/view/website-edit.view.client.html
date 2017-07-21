@@ -17,7 +17,8 @@
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="website-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.updateWebsite(model.website)">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -116,7 +117,6 @@
                        id="websiteName"
                        name="websiteName"
                        ng-model="model.website.name"
-                       placeholder="abc"
                        />
 
                 <label for="description"> Description</label>
@@ -124,20 +124,19 @@
                           id="description"
                           name="description"
                           ng-model="model.website.description"
-                          placeholder="abc"
                           rows="5">{{model.website.description}}</textarea>
 
             </form>
             <a class="btn btn-default btn-primary btn-block"
-               href="website-list.view.client.html"
+               ng-click="model.updateWebsite(model.website)"
                role="button">Update</a>
 
             <a class="btn btn-default btn-success btn-block"
-               href="../../page/view/page-list.view.client.html"
+               ng-click="model.goToPages()"
                role="button"> Pages</a>
 
             <a class="btn btn-default btn-danger btn-block"
-               href="website-list.view.client.html"
+               ng-click="model.deleteWebsite()"
                role="button">Delete</a>
 
         </div>

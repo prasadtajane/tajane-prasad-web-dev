@@ -48,7 +48,7 @@
             <li ng-repeat="website in model.websiteList" class="list-group-item">
                 <div class="row">
                     <div class="col-xs-4 col-sm-5">
-                        <a href="../../page/view/page-list.view.client.html">
+                        <a ng-click="model.goToPages(website.name)">
                             {{website.name}}
                         </a>
                     </div>
