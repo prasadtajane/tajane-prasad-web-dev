@@ -12,8 +12,8 @@
     function profileController($routeParams, $location, userService) {
 
         var model = this;
-        var searchProfile = searchProfile;
-        //var updateUser = updateUser;
+        //model.searchProfile = searchProfile;
+        var updateUser = updateUser;
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
 
@@ -22,11 +22,12 @@
         var uId = $routeParams["userId"];
 
         function init() {
+            //alert("inside profile service!")
             model.user = userService.findUserById(uId);
         }
         init();
 
-        function searchProfile() {
+        /*function searchProfile() {
             if (model.user === null)   {
                 model.message = "Incorrect id  '" + uId + "' !!!";
                 alert(model.message);
@@ -36,7 +37,7 @@
                 return model.user.username;
             }
         }
-        searchProfile();
+        searchProfile();*/
 
         function updateUser(user) {
             userService.updateUserByUserId(user, uId);

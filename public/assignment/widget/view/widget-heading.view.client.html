@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Widget Youtube</title>
+    <title>Widget Heading</title>
     <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css"
           rel="stylesheet">
     <link href="../../css/style.css"
@@ -15,19 +15,19 @@
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="widget-list.html">
+                <a class="navbar-link" href="widget-list.view.client.html">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
 
             <div class="navbar-header col-xs-11 col-sm-5">
                 <a class="navbar-brand" href="#">
-                    Youtube Widget
+                    Heading Widget
                 </a>
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="widget-list.html">
+                <a class="navbar-link" href="widget-list.view.client.html">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -55,7 +55,7 @@
                         </div>
 
                         <div class="navbar-text pull-right">
-                            <a class="navbar-link" href="widget-chooser.html">
+                            <a class="navbar-link" href="widget-chooser.view.client.html">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </a>
                         </div>
@@ -65,7 +65,7 @@
                 <div class="container-fluid">
                     <div class="wd-widget">
                         <div class="wd-widget-toolbar pull-right">
-                            <a href="widget-heading.html">
+                            <a href="widget-heading.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                             <a href="#">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="wd-widget">
                         <div class="wd-widget-toolbar pull-right">
-                            <a href="widget-image.html">
+                            <a href="widget-image.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                             <a href="#">
@@ -123,7 +123,7 @@
                     </div>
                     <div class="wd-widget">
                         <div class="wd-widget-toolbar pull-right">
-                            <a href="widget-heading.html">
+                            <a href="widget-heading.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                             <a href="#">
@@ -136,7 +136,7 @@
                     </div>
                     <div class="wd-widget">
                         <div class="wd-widget-toolbar pull-right">
-                            <a href="widget-youtube.html">
+                            <a href="widget-youtube.view.client.html">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
                             <a href="#">
@@ -171,7 +171,7 @@
                                 <span class="glyphicon glyphicon-play"></span>
                             </a>
 
-                            <a class="navbar-link" href="../../page/view/page-list.html">
+                            <a class="navbar-link" href="../../page/view/page-list.view.client.html">
                                 <span class="glyphicon glyphicon-eye-open"></span>
                             </a>
                         </div>
@@ -187,38 +187,34 @@
             <div class="col-xs-12 taj-col-lg-9">
                 <form>
 
-                    <label for="youtubeName">Name</label>
+                    <label for="headerName">Name</label>
                     <input class="form-control"
-                           id="youtubeName"
-                           name="youtubeName"
-                           value="Sir Ken Robinson"/>
+                           id="headerName"
+                           name="headerName"
+                           value="US News"/>
 
-                    <label for="youtubeText">Text</label>
+                    <label for="headerText">Text</label>
                     <input class="form-control"
-                           id="youtubeText"
-                           name="youtubeText"
+                           id="headerText"
+                           name="headerText"
                            type="text"
-                           value="Do schools kill creativity?"/>
+                           value="Sudden surge in Nasdaq index"/>
 
-                    <label for="youtubeUrl">URL</label>
-                    <input class="form-control"
-                           id="youtubeUrl"
-                           name="youtubeUrl"
-                           type="url"
-                           value="https://www.youtube.com/watch?v=Wg7v8YIu5Ms"/>
-
-                    <label for="youtubeWidth">Width</label>
-                    <input class="form-control"
-                           id="youtubeWidth"
-                           name="youtubeWidth"
-                           type="number"
-                           placeholder="3"/>
+                    <label for="headerSize">Size</label>
+                    <select class="form-control"
+                            name="headerSize"
+                            id="headerSize">
+                        <option>1(Smallest)</option>
+                        <option>2(Small)</option>
+                        <option>3(Medium)</option>
+                        <option>4(Large)</option>
+                        <option>5(Largest)</option>
+                    </select>
 
                 </form>
                 <a class="btn btn-default btn-danger btn-block"
-                   href="widget-list.html"
-                   role="button">Delete
-                </a>
+                   href="widget-list.view.client.html"
+                   role="button">Delete</a>
 
             </div>
         </div>
@@ -238,7 +234,7 @@
                         <span class="glyphicon glyphicon-user"></span>
                     </a>
                 </div>
-            </div>
+        </div>
         </div>
     </nav>
 

@@ -20,7 +20,7 @@
             updateUserByUserId:updateUserByUserId,
             deleteUserByUserId:deleteUserByUserId,
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
-            "findUserById":findUserById,
+            findUserById:findUserById,
             "findUserByUsername": findUserByUsername
         };
         return api;

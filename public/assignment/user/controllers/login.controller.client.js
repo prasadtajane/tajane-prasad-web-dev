@@ -15,7 +15,7 @@
         model.login = login;
 
         function login(user) {
-
+            //alert("Hi from login controller");
             var inuser = userService.findUserByUsernameAndPassword(user.username, user.password);
 
             if (inuser == null) {
