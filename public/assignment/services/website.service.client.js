@@ -55,15 +55,13 @@
         }
 
         function findWebsiteById(websiteId) {
-            websiteListById = [];
             for (var w in websites) {
                 if (websites[w]._id === websiteId)   {
                     websites[w].updated = ((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-                    websiteListById.push(websites[w]);
+                    return websites[w];
                 }
                 //alert("Not matched " + websites[w].developerId + " with " + userId);
             }
-            return websiteListById;
         }
 
         function createWebsite(userId, website) {

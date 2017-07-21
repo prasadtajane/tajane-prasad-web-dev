@@ -19,7 +19,7 @@
 
         function init() {
             model.websiteList = websiteService.findWebsiteByUserId(userId);
-            return model.websiteList;
+            //return model.websiteList;
             //alert("Hello " + userId);
         }
         init();

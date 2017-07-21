@@ -4,7 +4,8 @@
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="website-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToWebsiteList()">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
@@ -114,15 +115,17 @@
                 <input class="form-control"
                        id="websiteName"
                        name="websiteName"
-                       value="Blogger"/>
+                       ng-model="model.website.name"
+                       placeholder="abc"
+                       />
 
                 <label for="description"> Description</label>
                 <textarea class="form-control"
                           id="description"
                           name="description"
-
-                          rows="5">ABCDEFGHIJKLMNOPQRSTUVWXYZ
-abcdefghijklmnopqrstuvwxyz></textarea>
+                          ng-model="model.website.description"
+                          placeholder="abc"
+                          rows="5">{{model.website.description}}</textarea>
 
             </form>
             <a class="btn btn-default btn-primary btn-block"
@@ -138,7 +141,6 @@ abcdefghijklmnopqrstuvwxyz></textarea>
                role="button">Delete</a>
 
         </div>
-
     </div>
 
 
@@ -151,7 +153,8 @@ abcdefghijklmnopqrstuvwxyz></textarea>
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/view/profile.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToProfile()">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
