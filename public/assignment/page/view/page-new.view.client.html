@@ -1,33 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Build Page</title>
-    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-    <link href="../../css/style.css"
-          rel="stylesheet">
-</head>
 
-<body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar taj-navbar-default navbar-fixed-top">
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="page-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToPageList()">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
 
             <div class="navbar-header col-xs-11 col-sm-5">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" >
                     New Page
                 </a>
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="page-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.create(page)">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -140,6 +131,7 @@
                     <input class="form-control"
                            id="pageName"
                            name="pageName"
+                           ng-model="page.name"
                            placeholder="Facebook"/>
                 </div>
 
@@ -148,21 +140,18 @@
                     <textarea class="form-control"
                               id="pageDescription"
                               name="pageDescription"
+                              ng-model="page.description"
                               rows="1"
                               placeholder="Write something about the page."></textarea>
                 </div>
             </form>
 
             <a class="btn btn-default btn-primary btn-block"
-               href="page-list.view.client.html"
+               ng-click="model.create(page)"
                role="button">Create</a>
 
-            <a class="btn btn-default btn-success btn-block"
-               href="../../widget/view/widget-list.view.client.html"
-               role="button">Widgets</a>
-
             <a class="btn btn-default btn-danger btn-block"
-               href="page-list.view.client.html"
+               ng-click="model.backToPageList()"
                role="button">Cancel</a>
 
         </div>
@@ -170,7 +159,7 @@
 
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
+    <nav class="navbar taj-navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
                 <a class="navbar-link" href="page-list.view.client.html">
@@ -178,12 +167,10 @@
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/view/profile.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToProfile()">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>
     </nav>
-
-</body>
-</html>

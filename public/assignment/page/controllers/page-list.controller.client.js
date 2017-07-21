@@ -36,7 +36,7 @@
         }
 
         function createNewPage() {
-            $location.url("/profile/" + userId + "/website" + websiteId + "/new");
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/new");
         }
 
         function editPage(pageName) {
@@ -46,7 +46,7 @@
             //alert("Finding page with name '" + pageName + "'");
             model.page = pageService.findPageByName(pageName);
             var pageId = model.page._id;
-            $location.url("/profile/" + userId + "/website" + websiteId + "/page/" + pageId);
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId);
         }
 
     }

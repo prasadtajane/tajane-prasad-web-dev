@@ -5,54 +5,50 @@
 (function () {
     angular
         .module("WamApp")
-        .controller("newWebsiteController", newWebsiteController);
+        .controller("newPageController", newPageController);
 
-    function newWebsiteController($location, $routeParams, websiteService) {
+    function newPageController($location, $routeParams, pageService) {
 
         var model = this;
         model.backToProfile=backToProfile;
-        model.backToWebsiteList=backToWebsiteList;
-        model.findPages=findPages;
+        model.backToPageList=backToPageList;
 
         var userId = $routeParams["userId"];
-        //var websiteId = $routeParams["websiteId"];
+        var websiteId = $routeParams["websiteId"];
 
         function init() {
-            model.websiteList = websiteService.findWebsiteByUserId(userId);
-            //return model.websiteList;
-            //alert("Hello " + userId);
+            //alert("Inside page-new.controller init.")
+            model.pageList = pageService.findPagesByWebsite(websiteId);
+            return model.pageList;
         }
         init();
 
         function backToProfile() {
-            //alert("inside backToProfile")
+            //alert("inside backToProfile from page-new.controller")
             $location.url("/profile/" + userId);
         }
 
-        function backToWebsiteList() {
-            $location.url("/profile/" + userId + "/website");
-        }
-
-        function findPages() {
-            ///user/:uid/website/:wid/page
+        function backToPageList() {
+            //alert("inside backToPageList from page-new.controller")
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
         }
 
 
         model.create = (
-            function (website) {
-                if (typeof website === "undefined")   {
-                    alert("Website name and description cannot be null!")
+            function (page) {
+                if (typeof page === "undefined")   {
+                    alert("Page name and description cannot be null!")
                     return;
                 }
-                else if (website.name === null || website.description === null)   {
-                    alert("Website name and description cannot be null!")
+                else if (page.name === null || page.description === null)   {
+                    alert("Page name and description cannot be null!")
                     return;
                 }
                 else    {
-                    websiteService.createWebsite(userId, website);
+                    //createPage(websiteId, page)
+                    pageService.createPage(websiteId, page);
                 }
-                $location.url("/profile/" + userId + "/website");
+                $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
             })
 
     }

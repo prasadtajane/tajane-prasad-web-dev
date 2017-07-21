@@ -4,19 +4,21 @@
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="page-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToPageList()">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
 
             <div class="navbar-header col-xs-11 col-sm-5">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     Edit Page
                 </a>
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="page-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.updatePage(model.page)">
                     <span class="glyphicon glyphicon-ok"></span>
                 </a>
             </div>
@@ -56,68 +58,6 @@
                     </div>
                 </li>
 
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../../widget/view/widget-list.view.client.html">
-                                Blog
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../../widget/view/widget-list.view.client.html">
-                                Home
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../../widget/view/widget-list.view.client.html">
-                                About
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-xs-10">
-                            <a href="../../widget/view/widget-list.view.client.html">
-                                Contact Us
-                            </a>
-                        </div>
-                        <div class="col-xs-2">
-                            <a href="#" class="navbar-link pull-right">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                        </div>
-                    </div>
-                </li>
-                <!--<li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>
-                <li class="list-group-item">abc</li>-->
             </ul>
         </div>
 
@@ -129,7 +69,7 @@
                     <input class="form-control"
                            id="pageName"
                            name="pageName"
-                           value="Blogger"/>
+                           ng-model="model.page.name"/>
                 </div>
 
                 <div class="form-group">
@@ -137,20 +77,20 @@
                     <textarea class="form-control"
                               id="pageDescription"
                               name="pageDescription"
-
-                              rows="1">ABCDEFGHIJKLMNOPQRSTUVWXYZ</textarea>
+                              ng-model="model.page.description"
+                              rows="1"></textarea>
                 </div>
             </form>
             <a class="btn btn-default btn-primary btn-block"
-               href="page-list.view.client.html"
+               ng-click="model.updatePage(model.page)"
                role="button">Update</a>
 
             <a class="btn btn-default btn-success btn-block"
-               href="../../widget/view/widget-list.view.client.html"
+               ng-click="model.goToWidgetList()"
                role="button">Widgets</a>
 
             <a class="btn btn-default btn-danger btn-block"
-               href="page-list.view.client.html"
+               ng-click="model.deletePage()"
                role="button">Delete</a>
 
         </div>
@@ -161,17 +101,15 @@
     <nav class="navbar taj-navbar-default navbar-fixed-bottom">
         <div class="container-fluid">
             <div class="navbar-brand pull-left">
-                <a class="navbar-link" href="page-list.view.client.html">
+                <a class="navbar-link" >
                     <span class="glyphicon glyphicon-backward"></span>
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/view/profile.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToProfile()">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>
         </div>
     </nav>
-</body>
-
-</html>
