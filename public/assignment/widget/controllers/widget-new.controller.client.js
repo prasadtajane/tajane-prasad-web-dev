@@ -21,6 +21,7 @@
         model.createWidget=createWidget;
         model.backToProfile=backToProfile;
         model.backToWidgets=backToWidgets;
+        model.goToNewWidget=goToNewWidget;
 
         function init() {
 
@@ -39,6 +40,26 @@
         
         function backToWidgets() {
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+        }
+        
+        function goToNewWidget(name) {
+            //get name from chooser page
+            //create new widget object and assign id
+            //assign widget type according to the name
+            //now redirect(locate) url to the edit page
+
+            var type = name;
+            if (type === 'header') {
+                type = 'heading';
+            }
+            var widget = {
+                "widgetType": type.toUpperCase()
+            }
+            alert(widget.widgetType);
+            var newWidget = widgetService.createWidget(pageId, widget);
+            var newWidgetId = newWidget._id;
+
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
         }
     }
 })();

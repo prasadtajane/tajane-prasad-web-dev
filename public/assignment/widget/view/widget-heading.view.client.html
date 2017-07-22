@@ -191,7 +191,7 @@
                            placeholder="Sudden surge in Nasdaq index"
                            ng-model="model.widget.text"/>
 
-                    <label for="headerSize">Size</label>
+                    <!--<label for="headerSize">Size</label>
                     <select class="form-control"
                             name="headerSize"
                             id="headerSize"
@@ -202,7 +202,14 @@
                         <option>4(Large)</option>
                         <option>5(Largest)</option>
                         <option>6(Extra Large)</option>
-                    </select>
+                    </select>-->
+
+                    <label for="headerSize">Size</label>
+                    <input class="form-control"
+                           name="headerSize"
+                           id="headerSize"
+                           placeholder="1=h1 ... 6=h6"
+                           ng-model="model.widget.size"/>
 
                 </form>
                 <a class="btn btn-default btn-danger btn-block"
