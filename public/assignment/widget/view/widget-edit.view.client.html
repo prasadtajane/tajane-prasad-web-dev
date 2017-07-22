@@ -1,0 +1,47 @@
+
+
+<nav class="navbar taj-navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+
+        <div class="navbar-text pull-left">
+            <a class="navbar-link"
+               ng-click="model.backToWidgets()">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+        </div>
+
+        <div class="navbar-header col-xs-11 col-sm-5">
+            <a class="navbar-brand">
+                Widget Edit
+            </a>
+        </div>
+
+        <div class="navbar-text pull-right">
+            <a class="navbar-link" ng-click="model.updateWidget(model.widget)">
+                <span class="glyphicon glyphicon-ok"></span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!--<div ng-repeat="widget in model.widgets">-->
+    <div ng-switch="model.widget.widgetType">
+        <div ng-switch-when="IMAGE">
+            <ng-include src="'widget/view/widget-image.view.client.html'"/>
+        </div>
+        <div ng-switch-when="HEADING">
+            <ng-include src="'widget/view/widget-heading.view.client.html'"/>
+        </div>
+        <div ng-switch-when="YOUTUBE">
+            <ng-include src="'widget/view/widget-youtube.view.client.html'"/>
+        </div>
+        <div ng-switch-default class="container-fluid">
+            <div class="alert alert-info" ng-click="model.backToWidgets()">
+                Page Under Construction !<br/>
+                Click here to go back.
+            </div>
+        </div>
+    </div>
+<!--</div>-->
+
+<div ng-include="'views/common/footer.view.client.html'"></div>

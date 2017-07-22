@@ -19,6 +19,7 @@
         model.getSnippetUrl=getSnippetUrl;
         model.backToProfile=backToProfile;
         model.backToPageList=backToPageList;
+        model.goToEditWidget=goToEditWidget;
         model.findWidgetByPageId=findWidgetByPageId;
         model.goToNewWidgetChooser=goToNewWidgetChooser;
         model.getEmbededYouTubeLink=getEmbededYouTubeLink;
@@ -55,6 +56,12 @@
         function goToNewWidgetChooser() {
             ///user/:uid/website/:wid/page/:pid/widget/new
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/new");
+        }
+
+        function goToEditWidget(widget) {
+            ///profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId
+            var widgetId = widgetService.getWidgetId(widget);
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
         }
 
         function getEmbededYouTubeLink(linkUrl) {

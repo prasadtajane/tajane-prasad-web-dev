@@ -32,7 +32,7 @@
 
         <div ng-repeat="widget in model.widgetList" class="wd-widget">
             <div class="wd-widget-toolbar pull-right">
-                <a href="widget-heading.view.client.html">
+                <a ng-click="model.goToEditWidget(widget)">
                     <span class="glyphicon glyphicon-cog"></span>
                 </a>
                 <a href="#">

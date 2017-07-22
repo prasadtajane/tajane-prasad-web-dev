@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Widget Image</title>
-    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-    <link href="../../css/style.css"
-          rel="stylesheet">
-</head>
 
-<body>
 
+<!--
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
 
@@ -33,6 +23,7 @@
             </div>
         </div>
     </nav>
+-->
 
     <div class="container-fluid">
 
@@ -191,28 +182,32 @@
                     <input class="form-control"
                            id="imageName"
                            name="imageName"
-                           value="Wingsuit Stunts"/>
+                           placeholder="Wingsuit Stunts"
+                           ng-model="model.widget.name"/>
 
                     <label for="imageText">Text</label>
                     <input class="form-control"
                            id="imageText"
                            name="imageText"
                            type="text"
-                           value="Man in wingsuits dives through fire ring"/>
+                           placeholder="Man in wingsuits dives through fire ring"
+                           ng-model="model.widget.text"/>
 
                     <label for="imageUrl">URL</label>
                     <input class="form-control"
                            id="imageUrl"
                            name="imageUrl"
                            type="url"
-                           value="https://www.google.com/lycamobile/images/1.jpg"/>
+                           placeholder="https://www.google.com/lycamobile/images/1.jpg"
+                           ng-model="model.widget.url"/>
 
                     <label for="imageWidth">Width</label>
                     <input class="form-control"
                            id="imageWidth"
                            name="imageWidth"
-                           type="number"
-                           value="3"/>
+                           placeholder="3"
+                           type="tetx"
+                           ng-model="model.widget.width"/>
 
                     <label for="file">Upload</label>
                     <input class="form-control"
@@ -236,22 +231,4 @@
 
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
-            <div class="container-fluid">
-                <div class="navbar-brand pull-left">
-                    <a class="navbar-link" href="#">
-                        <span class="glyphicon glyphicon-backward"></span>
-                    </a>
-                </div>
-                <div class="navbar-text pull-right">
-                    <a class="navbar-link" href="../../user/view/profile.view.client.html">
-                        <span class="glyphicon glyphicon-user"></span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-</body>
-</html>
+    <div ng-include="'views/common/footer.view.client.html'"></div>

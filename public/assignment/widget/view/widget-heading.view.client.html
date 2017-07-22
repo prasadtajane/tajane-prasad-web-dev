@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Widget Heading</title>
-    <link href="../../../vendor/bootstrap/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-    <link href="../../css/style.css"
-          rel="stylesheet">
-</head>
 
-<body>
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+<!--    <nav class="navbar taj-navbar-default navbar-fixed-top">
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
@@ -32,7 +21,7 @@
                 </a>
             </div>
         </div>
-    </nav>
+    </nav>-->
 
     <div class="container-fluid">
 
@@ -164,7 +153,7 @@
 
                 </div>
 
-                <nav class="navbar navbar-default navbar-fixed-bottom">
+<!--                <nav class="navbar navbar-default navbar-fixed-bottom">
                     <div class="container-fluid">
                         <div class="navbar-brand pull-left">
                             <a class="navbar-link" href="#">
@@ -181,7 +170,7 @@
                             </a>
                         </div>
                     </div>
-                </nav>
+                </nav>-->
 
             </div>
             <div class="col-xs-12 taj-col-lg-9">
@@ -191,24 +180,28 @@
                     <input class="form-control"
                            id="headerName"
                            name="headerName"
-                           value="US News"/>
+                           palceholder="US News"
+                           ng-model="model.widget.name"/>
 
                     <label for="headerText">Text</label>
                     <input class="form-control"
                            id="headerText"
                            name="headerText"
                            type="text"
-                           value="Sudden surge in Nasdaq index"/>
+                           placeholder="Sudden surge in Nasdaq index"
+                           ng-model="model.widget.text"/>
 
                     <label for="headerSize">Size</label>
                     <select class="form-control"
                             name="headerSize"
-                            id="headerSize">
+                            id="headerSize"
+                            ng-model="model.widget.size">
                         <option>1(Smallest)</option>
                         <option>2(Small)</option>
                         <option>3(Medium)</option>
                         <option>4(Large)</option>
                         <option>5(Largest)</option>
+                        <option>6(Extra Large)</option>
                     </select>
 
                 </form>
@@ -221,22 +214,4 @@
 
     </div>
 
-    <nav class="navbar navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
-            <div class="container-fluid">
-                <div class="navbar-brand pull-left">
-                    <a class="navbar-link" href="#">
-                        <span class="glyphicon glyphicon-backward"></span>
-                    </a>
-                </div>
-                <div class="navbar-text pull-right">
-                    <a class="navbar-link" href="../../user/view/profile.view.client.html">
-                        <span class="glyphicon glyphicon-user"></span>
-                    </a>
-                </div>
-        </div>
-        </div>
-    </nav>
-
-</body>
-</html>
+    <div ng-include="'views/common/footer.view.client.html'"></div>

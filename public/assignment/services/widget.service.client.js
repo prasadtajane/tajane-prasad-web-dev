@@ -10,35 +10,44 @@
 
         var widgets = [
             { "_id": "123"
+                , "name": "Heading1"
                 , "widgetType": "HEADING"
                 , "pageId": "321"
                 , "size": 2
                 , "text": "GIZMODO"},
             { "_id": "234"
+                , "name": "Heading2"
                 , "widgetType": "HEADING"
                 , "pageId": "321"
                 , "size": 4
                 , "text": "Lorem ipsum"},
             { "_id": "345"
+                , "name": "Image1"
                 , "widgetType": "IMAGE"
                 , "pageId": "321"
+                , "text": "lorempixel"
                 , "width": "100%"
                 , "url": "http://lorempixel.com/400/200/"},
             { "_id": "456"
+                , "name": "Html1"
                 , "widgetType": "HTML"
                 , "pageId": "321"
                 , "text": "<p>Lorem ipsum</p>"},
             { "_id": "567"
+                , "name": "Heading3"
                 , "widgetType": "HEADING"
                 , "pageId": "321"
                 , "size": 4
                 , "text": "Lorem ipsum"},
             { "_id": "678"
+                , "name": "youtube1"
                 , "widgetType": "YOUTUBE"
                 , "pageId": "321"
+                , "text": "321"
                 , "width": "100%"
                 , "url": "https://youtu.be/AM2Ivdi9c4E" },
             { "_id": "789"
+                , "name": "Html2"
                 , "widgetType": "HTML"
                 , "pageId": "321"
                 , "text": "<p>Lorem ipsum</p>"}
@@ -49,7 +58,8 @@
             createWidget:createWidget,
             findWidgetById:findWidgetById,
             updateWidget:updateWidget,
-            deleteWidget:deleteWidget
+            deleteWidget:deleteWidget,
+            getWidgetId:getWidgetId
         };
         return api;
 
@@ -105,6 +115,15 @@
                     widgets.splice(w, 1);
                 }
             }
+        }
+
+        function getWidgetId(widget){
+            for(w in widgets) {
+                if (widgets[w].name === widget.name && widgets[w].widgetType === widget.widgetType && widgets[w].text === widget.text) {
+                    return widgets[w]._id;
+                }
+            }
+            return null;
         }
 
     }
