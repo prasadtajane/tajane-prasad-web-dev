@@ -39,7 +39,10 @@
                     <span class="glyphicon glyphicon-align-justify"></span>
                 </a>
             </div>
-            <div ng-switch="widget.widgetType">
+
+            <div ng-include="model.getSnippetUrl(widget.widgetType)"></div>
+
+            <!--<div ng-switch="widget.widgetType">
                 <div ng-switch-when="HEADING">
                     <div ng-include="'widget/view/snippets/widget-heading-snippet.view.client.html'"></div>
                 </div>
@@ -55,7 +58,8 @@
                 <div ng-switch-when="YOUTUBE">
                     <div ng-include="'widget/view/snippets/widget-youtube-snippet.view.client.html'"></div>
                 </div>
-            </div>
+            </div>-->
+
         </div>
 
 

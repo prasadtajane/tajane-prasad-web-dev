@@ -16,6 +16,7 @@
         var websiteId = $routeParams["websiteId"];
 
         model.trust=trust;
+        model.getSnippetUrl=getSnippetUrl;
         model.backToProfile=backToProfile;
         model.backToPageList=backToPageList;
         model.findWidgetByPageId=findWidgetByPageId;
@@ -30,6 +31,11 @@
 
         function trust(html) {
             return $sce.trustAsHtml(html);
+        }
+
+        function getSnippetUrl(type) {
+            //alert(type);
+            return ("widget/view/snippets/widget-" + type.toLowerCase() + "-snippet.view.client.html");
         }
 
         function backToProfile() {
