@@ -71,7 +71,7 @@
                 controllerAs: "model"
             })
             .when("/profile/:userId/website/:websiteId/page/:pageId/widget/new", {
-                templateUrl:"widget/view/widget-new.view.client.html",
+                templateUrl:"widget/view/widget-chooser.view.client.html",
                 controller: "newWidgetController",
                 controllerAs: "model"
             })

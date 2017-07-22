@@ -3,19 +3,21 @@
         <div class="container-fluid">
 
             <div class="navbar-text pull-left">
-                <a class="navbar-link" href="../../page/view/page-list.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToPageList()">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
             </div>
 
             <div class="navbar-header col-xs-11 col-sm-5">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand">
                     Widgets
                 </a>
             </div>
 
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="widget-chooser.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.goToNewWidgetChooser()">
                     <span class="glyphicon glyphicon-plus"></span>
                 </a>
             </div>
@@ -116,7 +118,7 @@
             <a href="#">
                 <span class="glyphicon glyphicon-align-justify"></span>
             </a>
-            
+
         </div>
         <div class="wd-widget">
             Published on Jan 6, 2007
@@ -141,7 +143,8 @@
                 </a>
             </div>
             <div class="navbar-text pull-right">
-                <a class="navbar-link" href="../../user/view/profile.view.client.html">
+                <a class="navbar-link"
+                   ng-click="model.backToProfile()">
                     <span class="glyphicon glyphicon-user"></span>
                 </a>
             </div>

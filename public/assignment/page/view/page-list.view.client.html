@@ -52,7 +52,7 @@
                 ng-repeat="page in model.pageList">
                 <div class="row">
                     <div class="col-xs-4 col-sm-5">
-                        <a href="../../widget/view/widget-list.view.client.html">
+                        <a ng-click="model.goToWidgets(page.name)">
                             {{page.name}}
                         </a>
                     </div>

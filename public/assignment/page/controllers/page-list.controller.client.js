@@ -14,6 +14,7 @@
         model.backToWebsiteList=backToWebsiteList;
         model.backToProfile=backToProfile;
         model.createNewPage=createNewPage;
+        model.goToWidgets=goToWidgets
         model.editPage=editPage;
 
         var userId = $routeParams["userId"];
@@ -47,6 +48,13 @@
             model.page = pageService.findPageByName(pageName);
             var pageId = model.page._id;
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId);
+        }
+
+        function goToWidgets(pageName)    {
+            ///user/:uid/website/:wid/page/:pid/widget
+            model.page = pageService.findPageByName(pageName);
+            var pageId = model.page._id;
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
         }
 
     }
