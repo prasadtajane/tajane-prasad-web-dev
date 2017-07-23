@@ -55,7 +55,7 @@
             var widget = {
                 "widgetType": type.toUpperCase()
             }
-            alert(widget.widgetType);
+            //alert(widget.widgetType);
             var newWidget = widgetService.createWidget(pageId, widget);
             var newWidgetId = newWidget._id;
 

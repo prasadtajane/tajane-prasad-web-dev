@@ -25,6 +25,7 @@
         model.getEmbededYouTubeLink=getEmbededYouTubeLink;
 
         function init() {
+            model.object=model.widget;
             model.widgetList = widgetService.findWidgetsByPageId(pageId);
             return model.widgetList;
         }
@@ -69,6 +70,19 @@
             var splitUrl = linkUrl.split('/');
             embed += splitUrl[(splitUrl.length)-1];
             return $sce.trustAsResourceUrl(embed);
+        }
+
+
+        model.brand="Widgets";
+        model.chevronLeft=chevronLeft;
+        model.okay=okay;
+
+        function chevronLeft() {
+            model.backToPageList();
+        }
+
+        function okay(page) {
+            model.create(model.page);
         }
     }
 })();

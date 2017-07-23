@@ -18,6 +18,7 @@
 
         function init() {
             //alert("Inside page-new.controller init.")
+            model.object=model.page;
             model.pageList = pageService.findPagesByWebsite(websiteId);
             return model.pageList;
         }
@@ -50,6 +51,19 @@
                 }
                 $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
             })
+
+
+        model.brand="New Page";
+        model.chevronLeft=chevronLeft;
+        model.okay=okay;
+
+        function chevronLeft() {
+            backToWebsiteList();
+        }
+
+        function okay(page) {
+            model.create(model.page);
+        }
 
     }
 })();

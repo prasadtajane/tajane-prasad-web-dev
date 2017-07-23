@@ -25,6 +25,7 @@
             //alert("Inside page-edit.controller init. pageId - " + pageId)
             model.page = pageService.findPageById(pageId);
             //alert(model.page);
+            model.pageList = pageService.findPagesByWebsite(websiteId);
             return model.page;
         }
         init();
@@ -43,14 +44,14 @@
         function updatePage(page1) {
             //alert("Inside update website");
             pageService.updatePage(pageId, page1);
-            this.goToPages();
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
         }
 
         //function deletePage(pageId)
         function deletePage()   {
             //alert("Inside delete website");
             pageService.deletePage(pageId);
-            this.goToPages();
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
 
         }
         
@@ -64,5 +65,32 @@
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
         }
 
+        function createNewPage() {
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/new");
+        }
+
+        function editPage(pageName) {
+            //find page
+            //get page id
+            //add in location
+            //alert("Finding page with name '" + pageName + "'");
+            model.page = pageService.findPageByName(pageName);
+            var pageId = model.page._id;
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId);
+        }
+
+
+        model.brand="Edit Page";
+        model.chevronLeft=chevronLeft;
+        model.object=model.page;
+        model.okay=okay;
+
+        function chevronLeft() {
+            backToPageList();
+        }
+
+        function okay(page) {
+            updatePage(page);
+        }
     }
 })();

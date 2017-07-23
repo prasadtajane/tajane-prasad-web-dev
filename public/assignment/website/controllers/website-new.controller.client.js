@@ -10,6 +10,7 @@
     function newWebsiteController($location, $routeParams, websiteService) {
 
         var model = this;
+
         model.backToProfile=backToProfile;
         model.backToWebsiteList=backToWebsiteList;
         model.findPages=findPages;
@@ -18,6 +19,7 @@
         //var websiteId = $routeParams["websiteId"];
 
         function init() {
+            model.object=model.website;
             model.websiteList = websiteService.findWebsiteByUserId(userId);
             //return model.websiteList;
             //alert("Hello " + userId);
@@ -54,6 +56,20 @@
                 }
                 $location.url("/profile/" + userId + "/website");
             })
+
+
+
+        model.brand="New Website";
+        model.chevronLeft=chevronLeft;
+        model.okay=okay;
+
+        function chevronLeft() {
+            backToWebsiteList();
+        }
+
+        function okay(website) {
+            model.create(model.website);
+        }
 
     }
 })();

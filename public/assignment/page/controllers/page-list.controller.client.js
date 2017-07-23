@@ -57,5 +57,18 @@
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
         }
 
+
+        model.brand="Pages";
+        model.object=model.page;
+        model.chevronLeft=chevronLeft;
+        model.okay=okay;
+
+        function chevronLeft() {
+            backToWebsiteList();
+        }
+
+        function okay(website) {
+        }
+
     }
 })();

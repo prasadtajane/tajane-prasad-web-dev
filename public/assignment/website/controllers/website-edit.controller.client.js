@@ -52,5 +52,20 @@
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
         }
 
+
+        model.brand="Edit Website";
+        model.object=model.website;
+        model.chevronLeft=chevronLeft;
+        model.okay=okay;
+
+        function chevronLeft() {
+            backToWebsiteList();
+        }
+
+        function okay(website) {
+            model.updateWebsite(website);
+        }
+
+
     }
 })();
