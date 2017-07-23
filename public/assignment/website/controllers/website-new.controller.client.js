@@ -15,6 +15,10 @@
         model.backToWebsiteList=backToWebsiteList;
         model.findPages=findPages;
 
+        model.createNewWebsite=createNewWebsite;
+        model.editWebsite=editWebsite;
+        model.goToPages=goToPages;
+
         var userId = $routeParams["userId"];
         //var websiteId = $routeParams["websiteId"];
 
@@ -56,6 +60,27 @@
                 }
                 $location.url("/profile/" + userId + "/website");
             })
+
+
+        function createNewWebsite() {
+            $location.url("/profile/" + userId + "/website/new");
+        }
+
+        function editWebsite(websiteName) {
+            //find website
+            //get website id
+            //add in location
+            //alert("Finding website with name '" + websiteName + "'");
+            model.website = websiteService.findWebsiteByName(websiteName);
+            var websiteId = model.website._id;
+            $location.url("/profile/" + userId + "/website/" + websiteId);
+        }
+
+        function goToPages(websiteName)    {
+            model.website = websiteService.findWebsiteByName(websiteName);
+            var websiteId = model.website._id;
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+        }
 
 
 

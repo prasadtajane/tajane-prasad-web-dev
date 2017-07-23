@@ -11,7 +11,11 @@
 
         var model = this;
         model.backToProfile=backToProfile;
-        model.backToPageList=backToPageList;
+        model.backToPageList=backToPageList
+
+        model.createNewPage=createNewPage;
+        model.goToWidgets=goToWidgets
+        model.editPage=editPage;
 
         var userId = $routeParams["userId"];
         var websiteId = $routeParams["websiteId"];
@@ -53,12 +57,34 @@
             })
 
 
+        function createNewPage() {
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/new");
+        }
+
+        function editPage(pageName) {
+            //find page
+            //get page id
+            //add in location
+            //alert("Finding page with name '" + pageName + "'");
+            model.page = pageService.findPageByName(pageName);
+            var pageId = model.page._id;
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId);
+        }
+
+        function goToWidgets(pageName)    {
+            ///user/:uid/website/:wid/page/:pid/widget
+            model.page = pageService.findPageByName(pageName);
+            var pageId = model.page._id;
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+        }
+
+
         model.brand="New Page";
         model.chevronLeft=chevronLeft;
         model.okay=okay;
 
         function chevronLeft() {
-            backToWebsiteList();
+            backToPageList();
         }
 
         function okay(page) {

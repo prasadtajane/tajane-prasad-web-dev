@@ -19,9 +19,15 @@
         model.deleteWebsite=deleteWebsite;
         model.goToPages=goToPages;
 
+        model.createNewWebsite=createNewWebsite;
+        model.editWebsite=editWebsite;
+        model.goToPages=goToPages;
+
+
         function init() {
             model.website = websiteService.findWebsiteById(websiteId);
             //alert(model.website.description);
+            model.websiteList = websiteService.findWebsiteByUserId(userId);
         }
         init();
 
@@ -49,6 +55,27 @@
         
         function goToPages() {
             ///user/:userId/website/:websiteId/page
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+        }
+
+
+        function createNewWebsite() {
+            $location.url("/profile/" + userId + "/website/new");
+        }
+
+        function editWebsite(websiteName) {
+            //find website
+            //get website id
+            //add in location
+            //alert("Finding website with name '" + websiteName + "'");
+            model.website = websiteService.findWebsiteByName(websiteName);
+            var websiteId = model.website._id;
+            $location.url("/profile/" + userId + "/website/" + websiteId);
+        }
+
+        function goToPages(websiteName)    {
+            model.website = websiteService.findWebsiteByName(websiteName);
+            var websiteId = model.website._id;
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
         }
 

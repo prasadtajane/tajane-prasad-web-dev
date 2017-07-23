@@ -40,6 +40,7 @@
         searchProfile();*/
 
         function updateUser(user) {
+            //alert("inside update of controller");
             userService.updateUserByUserId(user, uId);
 
         }

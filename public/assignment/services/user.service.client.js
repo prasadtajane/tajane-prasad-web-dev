@@ -9,10 +9,10 @@
     function userService()  {
 
         var users = [
-                {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder"  },
-                {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley"  },
-                {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia"  },
-                {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
+                {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder" ,    email: "a@b.com",  contact: 123  },
+                {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley",     email: "a@b.com",  contact: 123   },
+                {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia",     email: "a@b.com",  contact: 123   },
+                {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi",    email: "a@b.com",  contact: 123  }
             ];
 
         var api =  {
@@ -62,12 +62,15 @@
         }
 
         function updateUserByUserId(user, userId)   {
+            //alert("inside update service " + userId + " " + user);
             for(var u in users) {
                 if( users[u]._id === userId ) {
-                    users[u].firstName = user.firstName;
-                    users[u].lastName = user.lastName;
+                    //users[u].firstName = user.firstName;
+                    //users[u].lastName = user.lastName;
+                    users[u] = user;
                     //alert(users);
                     return users[u];
+                    alert("Hi " + users[u] + " Values have been updated successfully!");
                 }
             }
             return null;

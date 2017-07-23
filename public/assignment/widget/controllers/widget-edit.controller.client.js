@@ -7,7 +7,7 @@
         .module("WamApp")
         .controller("editWidgetController", editWidgetController);
 
-    function editWidgetController($location, $routeParams, widgetService) {
+    function editWidgetController($location, $routeParams, $sce, widgetService) {
 
         var model = this;
 
@@ -21,7 +21,12 @@
         model.backToProfile=backToProfile;
         model.backToWidgets=backToWidgets;
 
+        model.getSnippetUrl=getSnippetUrl;
+        model.goToEditWidget=goToEditWidget;
+        model.getEmbededYouTubeLink=getEmbededYouTubeLink;
+
         function init() {
+            model.widgetList = widgetService.findWidgetsByPageId(pageId);
             model.widgets = widgetService.findWidgetsByPageId(pageId);
             model.widget = widgetService.findWidgetById(widgetId);
             //return model.widgets;
@@ -45,6 +50,24 @@
 
         function backToWidgets() {
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+        }
+
+        function getSnippetUrl(type) {
+            //alert(type);
+            return ("widget/view/snippets/widget-" + type.toLowerCase() + "-snippet.view.client.html");
+        }
+
+        function goToEditWidget(widget) {
+            ///profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId
+            var widgetId = widgetService.getWidgetId(widget);
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+        }
+
+        function getEmbededYouTubeLink(linkUrl) {
+            var embed = "https://www.youtube.com/embed/";
+            var splitUrl = linkUrl.split('/');
+            embed += splitUrl[(splitUrl.length)-1];
+            return $sce.trustAsResourceUrl(embed);
         }
     }
 })();

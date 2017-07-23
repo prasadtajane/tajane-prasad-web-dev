@@ -28,153 +28,25 @@
     <div class="container-fluid">
 
         <div class="row wd-row">
+
             <div class="taj-col-xs-3 visible-lg">
-
-                <nav class="navbar navbar-default navbar-fixed-top">
-                    <div class="container-fluid">
-
-                        <div class="navbar-text pull-left">
-                            <a class="navbar-link" href="#">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                        </div>
-
-                        <div class="navbar-header col-xs-11 col-sm-5">
-                            <a class="navbar-brand" href="#">
-                                Widgets
-                            </a>
-                        </div>
-
-                        <div class="navbar-text pull-right">
-                            <a class="navbar-link" href="widget-chooser.view.client.html">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-
                 <div class="container-fluid">
-                    <div class="wd-widget">
+                    <div ng-repeat="widget in model.widgetList" class="wd-widget">
                         <div class="wd-widget-toolbar pull-right">
-                            <a href="widget-heading.view.client.html">
+                            <a ng-click="model.goToEditWidget(widget)">
                                 <span class="glyphicon glyphicon-cog"></span>
                             </a>
-                            <a href="#">
+                            <a>
                                 <span class="glyphicon glyphicon-align-justify"></span>
                             </a>
                         </div>
-                        <h1>
-                            LycaMobile
-                        </h1>
-                    </div>
-                    <div class="wd-widget">
-                        <div class="wd-widget-toolbar pull-right">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-align-justify"></span>
-                            </a>
-                        </div>
-                        <h3>
-                            This is not the official LycaMobile website. Prepaid Bill Inc.
-                            is an authorized payment center of LycaMobile products.To visit
-                            the official LycaMobile website, go to lycamobile.us
-                        </h3>
-                    </div>
-                    <div class="wd-widget">
-                        <div class="wd-widget-toolbar pull-right">
-                            <a href="widget-image.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-align-justify"></span>
-                            </a>
-                        </div>
-                        <img src="http://cdn-us-ec.yottaa.net/59108a6532f01c36172d42c0/www.lycamobile.us/v~13.41/Media/LYCA/images/banner-shop-plans.jpg?yocs=2_&yoloc=us"/>
-                    </div>
-                    <div class="wd-widget">
-                        <div class="wd-widget-toolbar pull-right">
-                            <a href="#">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-align-justify"></span>
-                            </a>
-                        </div>
-                        <p> 
-                            Make sure you've got a current Lycamobile Plan. If you're not yet with Lycamobile,
-                            check out our <a href="http://national-plans" target="_blank">national and international plans.</a>
-                        </p>
-                        <p>
-                            Tell your friends in the Lycamobile counry they live in to join the Lycamobile family and start talking for free.
-                            You can also help them by:
-                            Order a Free Sim for them that we will deliver to the address in the country they live.
-                        </p>
-                    </div>
-                    <div class="wd-widget">
-                        <div class="wd-widget-toolbar pull-right">
-                            <a href="widget-heading.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-align-justify"></span>
-                            </a>
-                        </div>
-                        <h2>
-                            Do schools kill creativity? | Sir Ken Robinson
-                        </h2>
-                    </div>
-                    <div class="wd-widget">
-                        <div class="wd-widget-toolbar pull-right">
-                            <a href="widget-youtube.view.client.html">
-                                <span class="glyphicon glyphicon-cog"></span>
-                            </a>
-                            <a href="#">
-                                <span class="glyphicon glyphicon-align-justify"></span>
-                            </a>
-                        </div>
-                        <iframe height="400" src="https://www.youtube.com/embed/iG9CE55wbtY?list=PL70DEC2B0568B5469" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="wd-widget-toolbar pull-right">
-                        <a href="#">
-                            <span class="glyphicon glyphicon-cog"></span>
-                        </a>
-                        <a href="#">
-                            <span class="glyphicon glyphicon-align-justify"></span>
-                        </a>
-                    </div>
-                    <div class="wd-widget">
-                        Published on Jan 6, 2007
-                        http://www.ted.com : Sir Ken Robinson makes an entertaining and
-                        profoundly moving case for creating an education system that nurtures (rather than undermines) creativity.
-                    </div>
 
+                        <div ng-include="model.getSnippetUrl(widget.widgetType)"></div>
 
-
-
+                    </div>
                 </div>
-
-                <nav class="navbar navbar-default navbar-fixed-bottom">
-                    <div class="container-fluid">
-                        <div class="navbar-brand pull-left">
-                            <a class="navbar-link" href="#">
-                                <span class="glyphicon glyphicon-play"></span>
-                            </a>
-
-                            <a class="navbar-link" href="../../page/view/page-list.view.client.html">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </a>
-                        </div>
-                        <div class="navbar-text pull-right">
-                            <a class="navbar-link" href="../../user/view/profile.view.client.html">
-                                <span class="glyphicon glyphicon-user"></span>
-                            </a>
-                        </div>
-                    </div>
-                </nav>
-
             </div>
+
             <div class="col-xs-12 taj-col-lg-9">
                 <form>
 

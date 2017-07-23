@@ -10,7 +10,7 @@
         .module("WamApp")
         .controller("newWidgetController", newWidgetController);
 
-    function newWidgetController($location, $routeParams, widgetService) {
+    function newWidgetController($location, $routeParams, $sce, widgetService) {
 
         var model = this;
 
@@ -23,8 +23,13 @@
         model.backToWidgets=backToWidgets;
         model.goToNewWidget=goToNewWidget;
 
+        model.getSnippetUrl=getSnippetUrl;
+        model.goToEditWidget=goToEditWidget;
+        model.getEmbededYouTubeLink=getEmbededYouTubeLink;
+
         function init() {
 
+            model.widgetList = widgetService.findWidgetsByPageId(pageId);
         }
         init();
 
@@ -61,5 +66,29 @@
 
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
         }
+
+
+        function trust(html) {
+            return $sce.trustAsHtml(html);
+        }
+
+        function getSnippetUrl(type) {
+            //alert(type);
+            return ("widget/view/snippets/widget-" + type.toLowerCase() + "-snippet.view.client.html");
+        }
+
+        function goToEditWidget(widget) {
+            ///profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId
+            var widgetId = widgetService.getWidgetId(widget);
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+        }
+
+        function getEmbededYouTubeLink(linkUrl) {
+            var embed = "https://www.youtube.com/embed/";
+            var splitUrl = linkUrl.split('/');
+            embed += splitUrl[(splitUrl.length)-1];
+            return $sce.trustAsResourceUrl(embed);
+        }
+
     }
 })();

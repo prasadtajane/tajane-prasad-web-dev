@@ -21,6 +21,10 @@
         model.deletePage=deletePage;
         model.goToPages=goToPages;
 
+        model.createNewPage=createNewPage;
+        model.goToWidgets=goToWidgets
+        model.editPage=editPage;
+
         function init() {
             //alert("Inside page-edit.controller init. pageId - " + pageId)
             model.page = pageService.findPageById(pageId);
@@ -77,6 +81,13 @@
             model.page = pageService.findPageByName(pageName);
             var pageId = model.page._id;
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId);
+        }
+
+        function goToWidgets(pageName)    {
+            ///user/:uid/website/:wid/page/:pid/widget
+            model.page = pageService.findPageByName(pageName);
+            var pageId = model.page._id;
+            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
         }
 
 
