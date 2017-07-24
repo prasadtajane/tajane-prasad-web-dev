@@ -9,9 +9,9 @@
     function userService()  {
 
         var users = [
-                {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder" ,    email: "a@b.com",  contact: 123  },
-                {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley",     email: "a@b.com",  contact: 123   },
-                {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia",     email: "a@b.com",  contact: 123   },
+                {_id: "123", username: "alice",    password: "alice",    firstName: "Alice",  lastName: "Wonder" ,    email: "a@b.com",  contact: 123,  isAdmin: true  },
+                {_id: "234", username: "bob",      password: "bob",      firstName: "Bob",    lastName: "Marley",     email: "a@b.com",  contact: 123  },
+                {_id: "345", username: "charly",   password: "charly",   firstName: "Charly", lastName: "Garcia",     email: "a@b.com",  contact: 123  },
                 {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi",    email: "a@b.com",  contact: 123  }
             ];
 
@@ -70,7 +70,6 @@
                     users[u] = user;
                     //alert(users);
                     return users[u];
-                    alert("Hi " + users[u] + " Values have been updated successfully!");
                 }
             }
             return null;

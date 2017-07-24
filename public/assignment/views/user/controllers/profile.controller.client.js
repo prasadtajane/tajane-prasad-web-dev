@@ -24,6 +24,8 @@
         function init() {
             //alert("inside profile service!")
             model.user = userService.findUserById(uId);
+            var user = model.user;
+            return user;
         }
         init();
 
@@ -42,6 +44,7 @@
         function updateUser(user) {
             //alert("inside update of controller");
             userService.updateUserByUserId(user, uId);
+            alert("Hi " + user.username + " all values have been updated successfully!");
 
         }
 
