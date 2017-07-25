@@ -37,7 +37,7 @@
 
         function getSnippetUrl(type) {
             //alert(type);
-            return ("widget/view/snippets/widget-" + type.toLowerCase() + "-snippet.view.client.html");
+            return ("views/widget/templates/snippets/widget-" + type.toLowerCase() + "-snippet.view.client.html");
         }
 
         function backToProfile() {

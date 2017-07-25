@@ -3,13 +3,13 @@
         .module("WamApp")
         .controller("homeController");
 
-    function homeController($location, $rootScope) {
+    function homeController($location, $rootScope, $routeParams) {
 
         var model = this;
 
-        model.currentUser = $rootScope.currentUser;
-
         function init() {
+            $rootScope.currentUser = $routeParams.userId;
+            model.currentUser = $rootScope.currentUser;
 
         }
         init();

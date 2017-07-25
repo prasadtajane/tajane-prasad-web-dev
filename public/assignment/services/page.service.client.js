@@ -57,7 +57,7 @@
             for (var p in pages) {
                 if (pages[p]._id === pageId)   {
                     pages[p].updated = ((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-                    return pages[p];
+                    return angular.copy(pages[p]);
                 }
                 //alert("Not matched " + pages[p].developerId + " with " + userId);
             }
@@ -82,7 +82,7 @@
                     pages[p].name = page1.name;
                     pages[p].description = page1.description;
 
-                    return pages[p];
+                    returnpages[p];
                 }
                 return null;
             }
