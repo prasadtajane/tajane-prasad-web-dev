@@ -65,6 +65,14 @@
 
         //createPage(websiteId, page)
         function createPage(websiteId, page) {
+
+
+            for (var p in pages) {
+                if (pages[p].name === page.name) {
+                    alert("Page with name '" + page.name + "' already exists !");
+                    return null;
+                }
+            }
             page._id = (new Date()).getTime() + "";
             page.websiteId = websiteId;
             page.visited = "1";
@@ -76,13 +84,15 @@
 
         //updatePage(pageId, page)
         function updatePage(pageId, page1)  {
+            //alert();
             for (var p in pages) {
-                if (pages[p] === pageId)  {
+                if (pages[p]._id === pageId)  {
+                    //alert("found");
+                    pages[p] = page1;
                     pages[p].updated=((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-                    pages[p].name = page1.name;
-                    pages[p].description = page1.description;
-
-                    returnpages[p];
+                    //pages[p].name = page1.name;
+                    //pages[p].description = page1.description;
+                    return pages[p];
                 }
                 return null;
             }

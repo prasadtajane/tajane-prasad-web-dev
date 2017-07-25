@@ -29,7 +29,7 @@
 
             for (var u in users) {
                 if (username === users[u].username && password === users[u].password) {
-                    return users[u];
+                    return angular.copy(users[u]);
                 }
             }
             return null;
@@ -39,7 +39,7 @@
 
             for (var u in users) {
                 if (userId === users[u]._id) {
-                    return users[u];
+                    return angular.copy(users[u]);
                 }
             }
             return null;
@@ -49,7 +49,7 @@
 
             for (var u in users) {
                 if (username === users[u].username) {
-                    return users[u];
+                    return angular.copy(users[u]);
                 }
             }
             return null;

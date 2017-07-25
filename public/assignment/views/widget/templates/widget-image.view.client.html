@@ -77,7 +77,7 @@
                     <input class="form-control"
                            id="imageWidth"
                            name="imageWidth"
-                           placeholder="3"
+                           placeholder="100%"
                            type="tetx"
                            ng-model="model.widget.width"/>
 
@@ -89,6 +89,7 @@
 
                 </form>
                 <a class="btn btn-default btn-primary btn-block"
+                   ng-click="model.updateWidget(model.widget)"
                    role="button">Upload Image
                 </a>
 

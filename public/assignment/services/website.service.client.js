@@ -58,13 +58,21 @@
             for (var w in websites) {
                 if (websites[w]._id === websiteId)   {
                     websites[w].updated = ((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-                    return websites[w];
+                    return angular.copy(websites[w]);
                 }
                 //alert("Not matched " + websites[w].developerId + " with " + userId);
             }
         }
 
         function createWebsite(userId, website) {
+
+            for (var w in websites) {
+                if (websites[w].name === website.name)    {
+                    alert("Website with name '" + website.name + "' already exists !");
+                    return null;
+                }
+            }
+
             website._id = (new Date()).getTime() + "";
             website.developerId = userId;
             website.visited = "1";
@@ -75,8 +83,9 @@
         }
 
         function updateWebsite(websiteId, website1)  {
+            //alert("updating - " + websiteId + " " + website1._name);
             for (var w in websites) {
-                if (websites[w] === websiteId)  {
+                if (websites[w]._id === websiteId)  {
                     websites[w].updated=((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
                     websites[w].name = website1.name;
                     websites[w].description = website1.description;
