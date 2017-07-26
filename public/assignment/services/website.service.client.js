@@ -84,16 +84,17 @@
 
         function updateWebsite(websiteId, website1)  {
             //alert("updating - " + websiteId + " " + website1._name);
+            //alert("service " + websiteId);
             for (var w in websites) {
                 if (websites[w]._id === websiteId)  {
                     websites[w].updated=((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-                    websites[w].name = website1.name;
-                    websites[w].description = website1.description;
-
+                    websites[w] = website1;
+                    //websites[w].name = website1.name;
+                    //websites[w].description = website1.description;
                     return websites[w];
                 }
-                return null;
             }
+            return null;
         }
 
         function deleteWebsite(websiteId)   {

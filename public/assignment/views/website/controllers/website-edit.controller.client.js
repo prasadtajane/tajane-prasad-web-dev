@@ -21,10 +21,15 @@
 
         model.createNewWebsite=createNewWebsite;
         model.editWebsite=editWebsite;
-        model.goToPages=goToPages;
 
+        model.brand="Edit Website";
+        model.object=model.website;
+        model.chevronLeft=chevronLeft;
+        model.okay=okay;
 
         function init() {
+            var userId = $routeParams.userId;
+            var websiteId = $routeParams.websiteId;
             model.website = websiteService.findWebsiteById(websiteId);
             //alert(model.website.description);
             model.websiteList = websiteService.findWebsiteByUserId(userId);
@@ -42,6 +47,7 @@
 
         function updateWebsite(website) {
             //alert("Inside update website");
+            //alert(websiteId);
             websiteService.updateWebsite(websiteId, website);
             $location.url("/profile/" + userId + "/website");
         }
@@ -52,7 +58,7 @@
             $location.url("/profile/" + userId + "/website");
 
         }
-        
+
         function goToPages() {
             ///user/:userId/website/:websiteId/page
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
@@ -73,17 +79,14 @@
             $location.url("/profile/" + userId + "/website/" + websiteId);
         }
 
-        function goToPages(websiteName)    {
+        /*function goToPages(websiteName)    {
             model.website = websiteService.findWebsiteByName(websiteName);
             var websiteId = model.website._id;
+            //console.log(websiteId);
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
-        }
+        }*/
 
 
-        model.brand="Edit Website";
-        model.object=model.website;
-        model.chevronLeft=chevronLeft;
-        model.okay=okay;
 
         function chevronLeft() {
             backToWebsiteList();
