@@ -94,8 +94,8 @@
                     //pages[p].description = page1.description;
                     return pages[p];
                 }
-                return null;
             }
+            return null;
         }
 
         //deletePage(pageId)
