@@ -27,7 +27,7 @@
 
         function init() {
             model.widgetList = widgetService.findWidgetsByPageId(pageId);
-            model.widgets = widgetService.findWidgetsByPageId(pageId);
+            model.widgets = model.widgetList;//   widgetService.findWidgetsByPageId(pageId);
             model.widget = widgetService.findWidgetById(widgetId);
             //return model.widgets;
         }
@@ -35,6 +35,7 @@
 
         function updateWidget(widget) {
             widgetService.updateWidget(widgetId, widget);
+            widgetService.clean();
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
         }
 
@@ -44,11 +45,15 @@
         }
 
         function backToProfile() {
+            widgetService.clean();
             //alert("inside backToProfile from page-new.controller")
             $location.url("/profile/" + userId);
         }
 
         function backToWidgets() {
+            //alert("inside backToWidgets before clean");
+            widgetService.clean();
+            //alert("inside backToWidgets after clean");
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
         }
 
