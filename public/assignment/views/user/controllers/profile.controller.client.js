@@ -9,17 +9,23 @@
         .module("WamApp")
         .controller("profileController", profileController)
 
-    function profileController($routeParams, $location, userService) {
+    function profileController($routeParams, $location, userService, $rootScope) {
 
         var model = this;
         //model.searchProfile = searchProfile;
         var updateUser = updateUser;
         model.updateUser = updateUser;
         model.deleteUser = deleteUser;
+        model.logout = logout;
 
         model.findWebsites = findWebsites;
 
         var uId = $routeParams["userId"];
+        
+        function logout() {
+            $rootScope.currentUser = null;
+            $location.url("/login");
+        }
 
         function init() {
             //alert("inside profile service!")

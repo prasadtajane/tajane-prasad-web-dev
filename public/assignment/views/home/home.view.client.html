@@ -11,23 +11,6 @@
 
     <title>Theme Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap theme -->
-    <link href="../vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../vendor/theme.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -48,11 +31,11 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a ng-show="!model.currentUser" href="#!/login">Login</a></li>
-                <li><a ng-show="!model.currentUser" href="#!/register">Register</a></li>
-                <li><a ng-show="!model.currentUser" href="#!/profile/{{model.currentUser}}">Profile</a></li>
-                <li><a ng-show="!model.currentUser" href="#!/login">Logout</a></li>
-                <li><a ng-show="model.user.isAdmin" href="#!/admin">Admin</a></li>
+                <li><a ng-show="!currentUser" href="#!/login">Login</a></li>
+                <li><a ng-show="!currentUser" href="#!/register">Register</a></li>
+                <li><a ng-show="currentUser" href="#!/profile/{{currentUser._id}}">Profile</a></li>
+                <li><a ng-show="currentUser" ng-click="model.logout()">Logout</a></li>
+                <li><a ng-show="currentUser.isAdmin" href="#!/admin">Admin</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li class="dropdown">
