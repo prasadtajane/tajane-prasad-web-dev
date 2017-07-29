@@ -25,23 +25,44 @@
         model.goToEditWidget=goToEditWidget;
         model.getEmbededYouTubeLink=getEmbededYouTubeLink;
 
+        model.trust = trust;
+
         function init() {
-            model.widgetList = widgetService.findWidgetsByPageId(pageId);
-            model.widgets = model.widgetList;//   widgetService.findWidgetsByPageId(pageId);
-            model.widget = widgetService.findWidgetById(widgetId);
+            widgetService.findWidgetsByPageId(userId, websiteId, pageId)
+                .then(function (response) {
+                    model.widgetList = response.data;
+                    model.widgets = model.widgetList;
+                });
+
+            widgetService.findWidgetById(userId, websiteId, pageId, widgetId)
+                .then(function (response) {
+                    model.widget = response.data;
+                });
             //return model.widgets;
         }
         init();
 
+        function trust(html) {
+            return $sce.trustAsHtml(html);
+        }
+
         function updateWidget(widget) {
-            widgetService.updateWidget(widgetId, widget);
-            widgetService.clean();
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+            widgetService.updateWidget(userId, websiteId, pageId, widgetId, widget)
+                .then(function (response) {
+                    if(response.data)   {
+                        widgetService.clean();
+                        $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+                    }
+                });
         }
 
         function deleteWidget() {
-            widgetService.deleteWidget(widgetId);
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+            widgetService.deleteWidget(userId, websiteId, pageId, widgetId)
+                .then(function (response) {
+                    if(response.data === "200") {
+                        $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+                    }
+                });
         }
 
         function backToProfile() {
@@ -64,8 +85,17 @@
 
         function goToEditWidget(widget) {
             ///profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId
-            var widgetId = widgetService.getWidgetId(widget);
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+            widgetService.getWidgetId(userId, websiteId, pageId, widget)
+                .then(function (response) {
+                    widgets = response.data;
+                    for(w in widgets) {
+                        if (widgets[w].name === widget.name && widgets[w].widgetType === widget.widgetType && widgets[w].text === widget.text) {
+                            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgets[w]._id);
+                            return;
+                        }
+                    }
+                    alert("goToEditWidget Failed!");
+            });
         }
 
         function getEmbededYouTubeLink(linkUrl) {

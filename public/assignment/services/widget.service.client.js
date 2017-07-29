@@ -6,52 +6,9 @@
         .module("WamApp")
         .factory("widgetService", widgetService);
 
-    function widgetService() {
+    function widgetService($http) {
 
-        var widgets = [
-            { "_id": "123"
-                , "name": "Heading1"
-                , "widgetType": "HEADING"
-                , "pageId": "321"
-                , "size": 2
-                , "text": "GIZMODO"},
-            { "_id": "234"
-                , "name": "Heading2"
-                , "widgetType": "HEADING"
-                , "pageId": "321"
-                , "size": 4
-                , "text": "Lorem ipsum"},
-            { "_id": "345"
-                , "name": "Image1"
-                , "widgetType": "IMAGE"
-                , "pageId": "321"
-                , "text": "lorempixel"
-                , "width": "100%"
-                , "url": "http://lorempixel.com/400/200/"},
-            { "_id": "456"
-                , "name": "Html1"
-                , "widgetType": "HTML"
-                , "pageId": "321"
-                , "text": "<p>Lorem ipsum</p>"},
-            { "_id": "567"
-                , "name": "Heading3"
-                , "widgetType": "HEADING"
-                , "pageId": "321"
-                , "size": 4
-                , "text": "Lorem ipsum"},
-            { "_id": "678"
-                , "name": "youtube1"
-                , "widgetType": "YOUTUBE"
-                , "pageId": "321"
-                , "text": "321"
-                , "width": "100%"
-                , "url": "https://youtu.be/AM2Ivdi9c4E" },
-            { "_id": "789"
-                , "name": "Html2"
-                , "widgetType": "HTML"
-                , "pageId": "321"
-                , "text": "<p>Lorem ipsum</p>"}
-        ];
+        var widgets = [];
 
         var api =  {
             findWidgetsByPageId:findWidgetsByPageId,
@@ -65,8 +22,10 @@
         return api;
 
         //findWidgetsByPageId(pageId)
-        function findWidgetsByPageId(pageId)    {
-            //clean();
+        function findWidgetsByPageId(userId, websiteId, pageId)    {
+            //http://localhost:3000/api/profile/456/website/456/page/321/widget
+            return $http.get("/api/profile/" + userId +"/website/" + websiteId +"/page/" + pageId +"/widget");
+            /*//clean();
             //alert("page id is " + pageId);
             var widgetsList = [];
             //alert("created widgetsList");
@@ -78,54 +37,57 @@
                 //alert("Not matched " + widgets[w].pageId + " with " + pageId);
             }
             //alert(widgetsList);
-            return angular.copy(widgetsList);
+            return angular.copy(widgetsList);*/
         }
 
         //createWidget(pageId, widget)
-        function createWidget(pageId, widget)   {
-            widget._id = (new Date()).getTime() + "";
+        function createWidget(userId, websiteId, pageId, widget)   {
+            //http://localhost:3000/api/profile/456/website/456/page/321/widget
+            return $http.post("/api/profile/" + userId +"/website/" + websiteId +"/page/" + pageId +"/widget", widget);
+            /*widget._id = (new Date()).getTime() + "";
             widget.pageId = pageId;
             widgets.push(widget);
-            return widget;
+            return widget;*/
         }
 
         //findWidgetById(widgetId)
-        function findWidgetById(widgetId)   {
-            for (w in widgets)  {
+        function findWidgetById(userId, websiteId, pageId, widgetId)   {
+            //http://localhost:3000/api/profile/456/website/456/page/321/widget/123
+            return $http.get("/api/profile/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+            /*for (w in widgets)  {
                 if (widgets[w]._id === widgetId) {
                     return angular.copy(widgets[w]);
                 }
             }
-            return null;
+            return null;*/
         }
 
         //updateWidget(widgetId, widget)
-        function updateWidget(widgetId, widget) {
-            for(w in widgets)   {
+        function updateWidget(userId, websiteId, pageId, widgetId, widget) {
+            //http://localhost:3000/api/profile/456/website/456/page/321/widget/123
+            return $http.put("/api/profile/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId, widget);
+            /*for(w in widgets)   {
                 if(widgets[w]._id === widgetId)    {
                     widgets[w] = widget;
                     return widgets[w];
                 }
             }
-            return null;
+            return null;*/
         }
 
         //deleteWidget(widgetId)
-        function deleteWidget(widgetId) {
-            for(w in widgets) {
+        function deleteWidget(userId, websiteId, pageId, widgetId) {
+            //http://localhost:3000/api/profile/456/website/456/page/321/widget/123
+            return $http.delete("/api/profile/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+            /*for(w in widgets) {
                 if (widgets[w]._id === widgetId) {
                     widgets.splice(w, 1);
                 }
-            }
+            }*/
         }
 
-        function getWidgetId(widget){
-            for(w in widgets) {
-                if (widgets[w].name === widget.name && widgets[w].widgetType === widget.widgetType && widgets[w].text === widget.text) {
-                    return widgets[w]._id;
-                }
-            }
-            return null;
+        function getWidgetId(userId, websiteId, pageId, widget){
+            return $http.get("/api/profile/" + userId +"/website/" + websiteId +"/page/" + pageId +"/widget");
         }
 
         function clean()    {

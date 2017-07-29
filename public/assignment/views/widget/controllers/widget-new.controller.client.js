@@ -27,15 +27,29 @@
         model.goToEditWidget=goToEditWidget;
         model.getEmbededYouTubeLink=getEmbededYouTubeLink;
 
+        model.trust = trust;
+
         function init() {
 
-            model.widgetList = widgetService.findWidgetsByPageId(pageId);
+            widgetService.findWidgetsByPageId(userId, websiteId, pageId)
+                .then(function (response) {
+                    model.widgetList = response.data;
+                });
         }
         init();
 
+        function trust(html) {
+            return $sce.trustAsHtml(html);
+        }
+
         function createWidget(widget) {
-            widgetService.createWidget(pageId, widget);
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+            widgetService.createWidget(userId, websiteId, pageId, widget)
+                .then(function (response) {
+                    var newWidget = response.data;
+                    if(newWidget)  {
+                        $location.url("/profile/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+newWidget._id);
+                    }
+                });
         }
 
         function backToProfile() {
@@ -61,15 +75,14 @@
                 "widgetType": type.toUpperCase()
             }
             //alert(widget.widgetType);
-            var newWidget = widgetService.createWidget(pageId, widget);
-            var newWidgetId = newWidget._id;
-
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
-        }
-
-
-        function trust(html) {
-            return $sce.trustAsHtml(html);
+            widgetService.createWidget(userId, websiteId, pageId, widget)
+                .then(function (response) {
+                    var newWidget = response.data;
+                    if(newWidget)  {
+                        var newWidgetId = newWidget._id;
+                        $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
+                    }
+                });
         }
 
         function getSnippetUrl(type) {
@@ -79,8 +92,17 @@
 
         function goToEditWidget(widget) {
             ///profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId
-            var widgetId = widgetService.getWidgetId(widget);
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+            widgetService.getWidgetId(userId, websiteId, pageId, widget)
+                .then(function (response) {
+                    widgets = response.data;
+                    for(w in widgets) {
+                        if (widgets[w].name === widget.name && widgets[w].widgetType === widget.widgetType && widgets[w].text === widget.text) {
+                            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgets[w]._id);
+                            return;
+                        }
+                    }
+                    alert("goToEditWidget Failed!");
+                });
         }
 
         function getEmbededYouTubeLink(linkUrl) {

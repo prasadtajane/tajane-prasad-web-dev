@@ -26,8 +26,11 @@
 
         function init() {
             model.object=model.widget;
-            model.widgetList = widgetService.findWidgetsByPageId(pageId);
-            return model.widgetList;
+            widgetService.findWidgetsByPageId(userId, websiteId, pageId)
+                .then(function (response) {
+                    model.widgetList = response.data;
+                    return model.widgetList;
+                });
         }
         init();
 
@@ -51,7 +54,10 @@
         }
 
         function findWidgetByPageId()    {
-            return widgetService.findWidgetByPageId(pageId);
+            widgetService.findWidgetByPageId(userId, websiteId, pageId)
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function goToNewWidgetChooser() {
@@ -61,8 +67,17 @@
 
         function goToEditWidget(widget) {
             ///profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId
-            var widgetId = widgetService.getWidgetId(widget);
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId);
+            widgetService.getWidgetId(userId, websiteId, pageId, widget)
+                .then(function (response) {
+                    widgets = response.data;
+                    for(w in widgets) {
+                        if (widgets[w].name === widget.name && widgets[w].widgetType === widget.widgetType && widgets[w].text === widget.text) {
+                            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgets[w]._id);
+                            return;
+                        }
+                    }
+                    alert("goToEditWidget Failed!");
+                });
         }
 
         function getEmbededYouTubeLink(linkUrl) {
