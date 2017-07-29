@@ -7,7 +7,7 @@
         .module("WamApp")
         .service("websiteService", websiteService)
 
-    function websiteService()   {
+    function websiteService($http)   {
 
         this.findWebsiteByUserId = findWebsiteByUserId;
         this.findWebsitesByUser = findWebsitesByUser;
@@ -17,55 +17,29 @@
         this.updateWebsite = updateWebsite;
         this.deleteWebsite = deleteWebsite;
 
-        var websites = [
-            { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem", "visited": "2000" },
-            { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem", "visited": "3000" },
-            { "_id": "456", "name": "Gizmodo",     "developerId": "456", "description": "Lorem", "visited": "4000" },
-            { "_id": "890", "name": "Go",          "developerId": "123", "description": "Lorem", "visited": "5000" },
-            { "_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem", "visited": "6000" },
-            { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem", "visited": "7000" },
-            { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem", "visited": "7500" }
-        ];
+        var websites = [];
 
         function findWebsiteByUserId(userId) {
-            websiteList = [];
-            for (var w in websites) {
-                if (websites[w].developerId === userId)   {
-                    websites[w].updated = ((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-                    websiteList.push(websites[w]);
-                }
-                //alert("Not matched " + websites[w].developerId + " with " + userId);
-            }
-            return websiteList;
+            //alert("inside client service - findWebsiteByUserId");
+            return $http.get("/api/profile/" + userId + "/website");
         }
 
         function findWebsitesByUser(userId) {
             return this.findWebsiteByUserId(userId);
         }
 
-        function findWebsiteByName(websiteName) {
-            for (var w in websites) {
-                if (websites[w].name === websiteName)    {
-                    //alert(websites[w]._id + "" + websites[w].name)
-                    return websites[w];
-                }
-            }
-            alert("Website with name '" + websiteName + "' Not Found!");
-            return null;
+        function findWebsiteByName(userId, websiteName) {
+            return $http.get("/api/profile/" + userId + "/website?websiteName=" + websiteName);
         }
 
-        function findWebsiteById(websiteId) {
-            for (var w in websites) {
-                if (websites[w]._id === websiteId)   {
-                    websites[w].updated = ((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-                    return angular.copy(websites[w]);
-                }
-                //alert("Not matched " + websites[w].developerId + " with " + userId);
-            }
+        function findWebsiteById(userId, websiteId) {
+            return $http.get("/api/profile/"+ userId + "/website/" + websiteId);
         }
 
         function createWebsite(userId, website) {
-
+            //"/api/profile/:userId/website"
+            return $http.post("/api/profile/"+ userId + "/website", website);
+/*
             for (var w in websites) {
                 if (websites[w].name === website.name)    {
                     alert("Website with name '" + website.name + "' already exists !");
@@ -79,30 +53,16 @@
             website.updated = ((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
 
             websites.push(website);
-            return websites;
+            return websites;*/
         }
 
-        function updateWebsite(websiteId, website1)  {
-            //alert("updating - " + websiteId + " " + website1._name);
-            //alert("service " + websiteId);
-            for (var w in websites) {
-                if (websites[w]._id === websiteId)  {
-                    websites[w].updated=((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-                    websites[w] = website1;
-                    //websites[w].name = website1.name;
-                    //websites[w].description = website1.description;
-                    return websites[w];
-                }
-            }
-            return null;
+        function updateWebsite(userId, websiteId, website1)  {
+            return $http.put("/api/profile/"+ userId + "/website/" + websiteId, website1);
         }
 
-        function deleteWebsite(websiteId)   {
-            for (var w in websites) {
-                if (websites[w]._id === websiteId) {
-                    websites.splice(w, 1);
-                }
-            }
+        function deleteWebsite(userId, websiteId)   {
+            //"api/profile/:userId/website/:websiteId"
+            return $http.delete("/api/profile/"+ userId + "/website/" + websiteId);
         }
 
     }

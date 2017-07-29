@@ -29,23 +29,16 @@
 
         function init() {
             //alert("inside profile service!")
-            model.user = userService.findUserById(uId);
-            var user = model.user;
-            return user;
+            var promise = userService.findUserById(uId);
+            promise.then(function (response) {
+                model.user = response.data;
+                var user = model.user;
+                return user;
+                })
+            //model.user = userService.findUserById(uId);
+
         }
         init();
-
-        /*function searchProfile() {
-            if (model.user === null)   {
-                model.message = "Incorrect id  '" + uId + "' !!!";
-                alert(model.message);
-            }
-            else    {
-                //alert(model.user);
-                return model.user.username;
-            }
-        }
-        searchProfile();*/
 
         function updateUser(user) {
             //alert("inside update of controller");
@@ -55,9 +48,14 @@
         }
 
         function deleteUser(user) {
-            userService.deleteUserByUserId(uId);
-            alert("Thank you for your patience, user with username '" + user.username + "' has been removed!");
-            $location.url("/login");
+            userService.deleteUserByUserId(uId)
+                .then(function (response) {
+                    suCode = response.data;
+                    if (suCode === "200") {
+                        alert("Thank you for your patience, user with username '" + user.username + "' has been removed!");
+                        $location.url("/login");
+                    }
+                });
         }
 
         function findWebsites() {

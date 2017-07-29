@@ -30,9 +30,15 @@
         function init() {
             var userId = $routeParams.userId;
             var websiteId = $routeParams.websiteId;
-            model.website = websiteService.findWebsiteById(websiteId);
+            websiteService.findWebsiteById(userId, websiteId)
+                .then(function (response) {
+                    model.website = response.data;
+                });
             //alert(model.website.description);
-            model.websiteList = websiteService.findWebsiteByUserId(userId);
+            websiteService.findWebsiteByUserId(userId)
+                .then(function (response) {
+                    model.websiteList = response.data;
+                });
         }
         init();
 
@@ -48,14 +54,23 @@
         function updateWebsite(website) {
             //alert("Inside update website");
             //alert(websiteId);
-            websiteService.updateWebsite(websiteId, website);
-            $location.url("/profile/" + userId + "/website");
+            websiteService.updateWebsite(userId, websiteId, website)
+                .then(function () {
+                    $location.url("/profile/" + userId + "/website");
+                });
         }
 
         function deleteWebsite()   {
             //alert("Inside delete website");
-            websiteService.deleteWebsite(websiteId);
-            $location.url("/profile/" + userId + "/website");
+            websiteService.deleteWebsite(userId, websiteId)
+                .then(function (response) {
+                    if (response.data === "200")  {
+                        $location.url("/profile/" + userId + "/website");
+                    }
+                    else    {
+                        alert("Deletion Failed!")
+                    }
+                });
 
         }
 
@@ -70,20 +85,23 @@
         }
 
         function editWebsite(websiteName) {
-            //find website
-            //get website id
-            //add in location
-            //alert("Finding website with name '" + websiteName + "'");
-            model.website = websiteService.findWebsiteByName(websiteName);
-            var websiteId = model.website._id;
-            $location.url("/profile/" + userId + "/website/" + websiteId);
+            websiteService.findWebsiteByName(userId, websiteName)
+                .then(function (response) {
+                    model.website = response.data;
+                    var websiteId = model.website._id;
+                    $location.url("/profile/" + userId + "/website/" + websiteId);
+                });
         }
 
-        /*function goToPages(websiteName)    {
-            model.website = websiteService.findWebsiteByName(websiteName);
-            var websiteId = model.website._id;
-            //console.log(websiteId);
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+        /*
+         function goToPages(websiteName)    {
+         websiteService.findWebsiteByName(userId, websiteName)
+         .then(function (responce) {
+         model.website = responce.data;
+         var websiteId = model.website._id;
+         $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+         });
+         }
         }*/
 
 

@@ -18,9 +18,12 @@
         var userId = $routeParams["userId"];
 
         function init() {
-            model.websiteList = websiteService.findWebsiteByUserId(userId);
-            return model.websiteList;
-            //alert("Hello " + userId);
+            websiteService.findWebsiteByUserId(userId)
+                .then(function (response) {
+                    //alert("inside controller - findWebsiteByUserId");
+                    model.websiteList = response.data;
+                    return model.websiteList;
+                });
         }
         init();
 
@@ -37,15 +40,21 @@
             //get website id
             //add in location
             //alert("Finding website with name '" + websiteName + "'");
-            model.website = websiteService.findWebsiteByName(websiteName);
-            var websiteId = model.website._id;
-            $location.url("/profile/" + userId + "/website/" + websiteId);
+            websiteService.findWebsiteByName(userId, websiteName)
+                .then(function (response) {
+                    model.website = response.data;
+                    var websiteId = model.website._id;
+                    $location.url("/profile/" + userId + "/website/" + websiteId);
+                });
         }
 
         function goToPages(websiteName)    {
-            model.website = websiteService.findWebsiteByName(websiteName);
-            var websiteId = model.website._id;
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+            websiteService.findWebsiteByName(userId, websiteName)
+                .then(function (responce) {
+                    model.website = responce.data;
+                    var websiteId = model.website._id;
+                    $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+                });
         }
 
 

@@ -16,20 +16,29 @@
 
         function login(user) {
             //alert("Hi from login controller");
-            var inuser = userService.findUserByUsernameAndPassword(user.username, user.password);
-
-            if (inuser == null) {
-                model.message = "Incorrect credentials for user '" + user.username + "' !!!";
-                alert(model.message);
-            }
-            else {
-                model.message = "Welcome back " + inuser.username + " !!!";
-                $rootScope.currentUser = inuser;
-                //alert("user is " + inuser.username +" "+inuser.password+inuser._id);
-                $location.url("/profile/" + inuser._id);
-            }
+            var promise = userService.findUserByUsernameAndPassword(user.username, user.password)
+            promise.then(function (response)    {
+                inuser = response.data;
+                //alert(inuser);
+                if (inuser === "0") {
+                    model.message = "Incorrect credentials for user '" + user.username + "' !!!";
+                    alert(model.message);
+                }
+                else {
+                    model.message = "Welcome back " + inuser.username + " !!!";
+                    $rootScope.currentUser = inuser;
+                    //alert("user is " + inuser.username +" "+inuser.password+inuser._id);
+                    $location.url("/profile/" + inuser._id);
+                }
+            });
 
         }
+
+        function processResponse(response){
+
+        }
+
+
 
         model.register = (function () {
             $location.url("/register");

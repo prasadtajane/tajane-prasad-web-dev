@@ -24,7 +24,10 @@
 
         function init() {
             model.object=model.website;
-            model.websiteList = websiteService.findWebsiteByUserId(userId);
+            websiteService.findWebsiteByUserId(userId)
+                .then(function (response) {
+                    model.websiteList = response.data;
+                });
             //return model.websiteList;
             //alert("Hello " + userId);
         }
@@ -56,9 +59,13 @@
                     return;
                 }
                 else    {
-                    websiteService.createWebsite(userId, website);
+                    websiteService.createWebsite(userId, website)
+                        .then(function (response) {
+                            if (response.data != "0")    {
+                                $location.url("/profile/" + userId + "/website");
+                            }
+                        });
                 }
-                $location.url("/profile/" + userId + "/website");
             })
 
 
@@ -67,19 +74,21 @@
         }
 
         function editWebsite(websiteName) {
-            //find website
-            //get website id
-            //add in location
-            //alert("Finding website with name '" + websiteName + "'");
-            model.website = websiteService.findWebsiteByName(websiteName);
-            var websiteId = model.website._id;
-            $location.url("/profile/" + userId + "/website/" + websiteId);
+            websiteService.findWebsiteByName(userId, websiteName)
+                .then(function (response) {
+                    model.website = response.data;
+                    var websiteId = model.website._id;
+                    $location.url("/profile/" + userId + "/website/" + websiteId);
+                });
         }
 
         function goToPages(websiteName)    {
-            model.website = websiteService.findWebsiteByName(websiteName);
-            var websiteId = model.website._id;
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+            websiteService.findWebsiteByName(userId, websiteName)
+                .then(function (responce) {
+                    model.website = responce.data;
+                    var websiteId = model.website._id;
+                    $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+                });
         }
 
 
