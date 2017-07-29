@@ -64,6 +64,9 @@
                             if (response.data != "0")    {
                                 $location.url("/profile/" + userId + "/website");
                             }
+                            else    {
+                                alert("Website with name '" + website.name + "' already exists !");
+                            }
                         });
                 }
             })

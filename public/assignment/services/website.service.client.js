@@ -39,21 +39,6 @@
         function createWebsite(userId, website) {
             //"/api/profile/:userId/website"
             return $http.post("/api/profile/"+ userId + "/website", website);
-/*
-            for (var w in websites) {
-                if (websites[w].name === website.name)    {
-                    alert("Website with name '" + website.name + "' already exists !");
-                    return null;
-                }
-            }
-
-            website._id = (new Date()).getTime() + "";
-            website.developerId = userId;
-            website.visited = "1";
-            website.updated = ((new Date().getMonth()+1)+ "/" + new Date().getDate()+ "");
-
-            websites.push(website);
-            return websites;*/
         }
 
         function updateWebsite(userId, websiteId, website1)  {

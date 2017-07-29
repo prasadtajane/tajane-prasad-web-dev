@@ -22,8 +22,11 @@
 
         function init() {
             //alert("Inside page-list.controller init.")
-            model.pageList = pageService.findPagesByWebsite(websiteId);
-            return model.pageList;
+            pageService.findPagesByWebsite(userId, websiteId)
+                .then(function (responce) {
+                    model.pageList = responce.data;
+                    return model.pageList;
+                });
             //alert("Hello " + userId);
         }
         init();
@@ -41,20 +44,22 @@
         }
 
         function editPage(pageName) {
-            //find page
-            //get page id
-            //add in location
-            //alert("Finding page with name '" + pageName + "'");
-            model.page = pageService.findPageByName(pageName);
-            var pageId = model.page._id;
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId);
+            pageService.findPageByName(userId, websiteId, pageName)
+                .then(function (responce) {
+                    model.page = responce.data;
+                    var pageId = model.page._id;
+                    $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId);
+                });
         }
 
         function goToWidgets(pageName)    {
             ///user/:uid/website/:wid/page/:pid/widget
-            model.page = pageService.findPageByName(pageName);
-            var pageId = model.page._id;
-            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+            pageService.findPageByName(userId, websiteId, pageName)
+                .then(function (responce) {
+                    model.page = responce.data;
+                    var pageId = model.page._id;
+                    $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+                });
         }
 
 
