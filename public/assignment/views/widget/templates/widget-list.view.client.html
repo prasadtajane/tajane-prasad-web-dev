@@ -26,9 +26,10 @@
 
 
 
-    <div class="container-fluid">
+    <div class="container-fluid" wd-sortable>
 
         <div ng-repeat="widget in model.widgetList" class="wd-widget">
+
             <div class="wd-widget-toolbar pull-right">
                 <a ng-click="model.goToEditWidget(widget)">
                     <span class="glyphicon glyphicon-cog"></span>
@@ -40,24 +41,6 @@
             </div>
 
             <div ng-include="model.getSnippetUrl(widget.widgetType)"></div>
-
-            <!--<div ng-switch="widget.widgetType">
-                <div ng-switch-when="HEADING">
-                    <div ng-include="'widget/view/snippets/widget-heading-snippet.view.client.html'"></div>
-                </div>
-
-                <div ng-switch-when="IMAGE">
-                    <div ng-include="'widget/view/snippets/widget-image-snippet.view.client.html'"></div>
-                </div>
-
-                <div ng-switch-when="HTML">
-                    <div ng-include="'widget/view/snippets/widget-html-snippet.view.client.html'"></div>
-                </div>
-
-                <div ng-switch-when="YOUTUBE">
-                    <div ng-include="'widget/view/snippets/widget-youtube-snippet.view.client.html'"></div>
-                </div>
-            </div>-->
 
         </div>
 

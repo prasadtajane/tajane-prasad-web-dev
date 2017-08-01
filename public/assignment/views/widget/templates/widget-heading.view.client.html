@@ -1,60 +1,21 @@
+<label for="headerName">Name</label>
+<input class="form-control"
+       id="headerName"
+       name="headerName"
+       palceholder="US News"
+       ng-model="model.widget.name"/>
 
+<label for="headerText">Text</label>
+<input class="form-control"
+       id="headerText"
+       name="headerText"
+       type="text"
+       placeholder="Sudden surge in Nasdaq index"
+       ng-model="model.widget.text"/>
 
-<!--    <nav class="navbar taj-navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-
-            <div class="navbar-text pull-left">
-                <a class="navbar-link" href="widget-list.view.client.html">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-            </div>
-
-            <div class="navbar-header col-xs-11 col-sm-5">
-                <a class="navbar-brand" href="#">
-                    Heading Widget
-                </a>
-            </div>
-
-            <div class="navbar-text pull-right">
-                <a class="navbar-link" href="widget-list.view.client.html">
-                    <span class="glyphicon glyphicon-ok"></span>
-                </a>
-            </div>
-        </div>
-    </nav>-->
-
-
-                    <label for="headerName">Name</label>
-                    <input class="form-control"
-                           id="headerName"
-                           name="headerName"
-                           palceholder="US News"
-                           ng-model="model.widget.name"/>
-
-                    <label for="headerText">Text</label>
-                    <input class="form-control"
-                           id="headerText"
-                           name="headerText"
-                           type="text"
-                           placeholder="Sudden surge in Nasdaq index"
-                           ng-model="model.widget.text"/>
-
-                    <!--<label for="headerSize">Size</label>
-                    <select class="form-control"
-                            name="headerSize"
-                            id="headerSize"
-                            ng-model="model.widget.size"
-                        <option value="1">1(Smallest)</option>
-                        <option value="2">2(Small)</option>
-                        <option value="3">3(Medium)</option>
-                        <option value="4">4(Large)</option>
-                        <option value="5">5(Largest)</option>
-                        <option value="6">6(Extra Large)</option>
-                    </select>-->
-
-                    <label for="headerSize">Size</label>
-                    <input class="form-control"
-                           name="headerSize"
-                           id="headerSize"
-                           placeholder="1=h1 ... 6=h6"
-                           ng-model="model.widget.size"/>
+<label for="headerSize">Size</label>
+<input class="form-control"
+       name="headerSize"
+       id="headerSize"
+       placeholder="1=h1 ... 6=h6"
+       ng-model="model.widget.size"/>

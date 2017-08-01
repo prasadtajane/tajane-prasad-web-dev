@@ -6,6 +6,18 @@
 
 (function ()   {
     angular
-        .module("WamApp", ["ngRoute"]);
+        .module("WamApp", ["ngRoute"])
+        .directive("wdSortable", wdSortable);
 
+
+    function wdSortable() {
+        function linkFunction(scope, element) {
+            console.log(element);
+            $(element).sortable();
+        }
+
+        return{
+            link:linkFunction
+        }
+    }
 })();
