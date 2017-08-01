@@ -17,7 +17,8 @@
             updateWidget:updateWidget,
             deleteWidget:deleteWidget,
             getWidgetId:getWidgetId,
-            clean:clean
+            clean:clean,
+            "sort":sort
         };
         return api;
 
@@ -67,6 +68,19 @@
                     }
                 }
             }
+        }
+
+        function sort(start, end) {
+            //http://localhost:3000/api/profile/456/website/456/age/:pageId/widget?initial=index1&final=index2
+
+            console.log("inside service client");
+            console.log([start, end]);
+            url = "/api/profile/456/website/456/page/321/widget?initial="+start+"&final="+end;
+
+
+            console.log(url);
+
+            $http.put(url);
         }
 
     }

@@ -63,6 +63,17 @@ app.post("/api/profile/:userId/website/:websiteId/page/:pageId/widget", createWi
 app.put("/api/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
 app.delete("/api/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
 
+app.put("/api/profile/:userId/website/:websiteId/page/:pageId/widget", sortable);
+
+function sortable(request, response) {
+    var start = request.query.initial;
+    var end = request.query.final;
+    console.log("Inside Server");
+    console.log([start, end]);
+    widgets.splice(end, 0, (widgets.splice(start, 1))[0]);
+    response.sendStatus(200);
+    return;
+}
 
 function uploadImage(req, res) {
 
