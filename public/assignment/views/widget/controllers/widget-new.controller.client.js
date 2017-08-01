@@ -31,6 +31,10 @@
 
         function init() {
 
+            model.pageId = pageId;
+            model.userId = userId;
+            model.websiteId = websiteId;
+
             widgetService.findWidgetsByPageId(userId, websiteId, pageId)
                 .then(function (response) {
                     model.widgetList = response.data;
@@ -47,6 +51,7 @@
                 .then(function (response) {
                     var newWidget = response.data;
                     if(newWidget)  {
+                        model.widgetId = newWidget._id;
                         $location.url("/profile/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+newWidget._id);
                     }
                 });
@@ -78,8 +83,9 @@
             widgetService.createWidget(userId, websiteId, pageId, widget)
                 .then(function (response) {
                     var newWidget = response.data;
-                    if(newWidget)  {
+                    if(newWidget != "0")  {
                         var newWidgetId = newWidget._id;
+                        model.widgetId = newWidgetId;
                         $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
                     }
                 });

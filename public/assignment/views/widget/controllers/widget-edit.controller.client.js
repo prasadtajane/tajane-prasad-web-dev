@@ -16,6 +16,7 @@
         var widgetId = $routeParams.widgetId;
         var websiteId = $routeParams["websiteId"];
 
+
         model.updateWidget=updateWidget;
         model.deleteWidget=deleteWidget;
         model.backToProfile=backToProfile;
@@ -28,6 +29,10 @@
         model.trust = trust;
 
         function init() {
+            model.pageId = pageId;
+            model.userId = userId;
+            model.widgetId = widgetId;
+            model.websiteId = websiteId;
             widgetService.findWidgetsByPageId(userId, websiteId, pageId)
                 .then(function (response) {
                     model.widgetList = response.data;

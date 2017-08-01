@@ -50,6 +50,12 @@ var widgets = [
         ];
 
 
+var multer = require('multer'); // npm install multer --save
+var upload = multer({ dest: __dirname+'/../../public/assignment/uploads' });
+
+app.post ("/api/assignment/uploads", upload.single('myFile'), uploadImage);
+
+
 app.get("/api/profile/:userId/website/:websiteId/page/:pageId/widget",getwidgets);
 app.get("/api/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId",findWidgetById);
 
@@ -57,6 +63,53 @@ app.post("/api/profile/:userId/website/:websiteId/page/:pageId/widget", createWi
 app.put("/api/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
 app.delete("/api/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
 
+
+function uploadImage(req, res) {
+
+    var widgetId      = req.body.widgetId;
+    var width         = req.body.width;
+    var myFile        = req.file;
+
+    var userId = req.body.userId;
+    var websiteId = req.body.websiteId;
+    var pageId = req.body.pageId;
+
+//console.log(myFile);
+
+    var originalname  = myFile.originalname; // file name on user's computer
+    var path          = myFile.path;         // full path of uploaded file
+    var destination   = myFile.destination;  // folder where file is saved to
+    var size          = myFile.size;
+    var mimetype      = myFile.mimetype;
+
+    var fileName      = originalname.split(".")
+    //console.log(fileName);
+    //type              = fileName[fileName.length-1];
+    //console.log(type);
+    var name          = myFile.name;
+    var width         = myFile.widhth;
+    var text          = myFile.text;
+
+    //myFile.filename   = (new Date()).getTime() + "." +myFile.originalname;
+    //var filename      = myFile.filename;     // new file name in upload folder
+
+    var widget = getWidgetById(widgetId);
+    widget.url = '/assignment/uploads/'+myFile.filename ;
+
+    widget.myFile = myFile;
+    widget.name = name;
+    widget.width = width;
+    widget.text = text;
+
+    //console.log(widget);
+    //console.log(widget.url);
+
+    //  /api/profile/:userId/website/:websiteId/page/:pageId/widget
+    //  http://localhost:3000/assignment/index.html#!/profile/456/website/456/page/321/widget
+    var callbackUrl   = "/assignment/index.html#!/profile/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId;
+
+    res.redirect(callbackUrl);
+}
 
 function getwidgets(request, response) {
     var widgetName = request.query.widgetName;
@@ -100,6 +153,17 @@ function findWidgetById(request, response) {
     }
     response.send("0");
     return;
+}
+
+function getWidgetById(widgetId) {
+    for (var w in widgets)    {
+        if( widgets[w]._id === widgetId )    {
+            //response.send(widgets[w]);
+            return widgets[w];
+        }
+    }
+    //response.send("0");
+    return "0";
 }
 
 

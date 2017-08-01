@@ -91,6 +91,7 @@
                 controller: "editWidgetController",
                 controllerAs: "model"
             })
+
     }
 
 
