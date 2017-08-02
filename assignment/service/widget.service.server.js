@@ -63,7 +63,7 @@ app.post("/api/profile/:userId/website/:websiteId/page/:pageId/widget", createWi
 app.put("/api/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
 app.delete("/api/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
 
-app.put("/api/profile/:userId/website/:websiteId/page/:pageId/widget", sortable);
+app.put("/api/page/:pageId/widget", sortable);
 
 function sortable(request, response) {
     var start = request.query.initial;
