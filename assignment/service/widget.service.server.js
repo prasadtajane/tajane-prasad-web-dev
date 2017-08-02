@@ -41,7 +41,7 @@ var widgets = [
         , "pageId": "321"
         , "text": "321"
         , "width": "100%"
-        , "url": "https://youtu.be/AM2Ivdi9c4E" },
+        , "url": "https://youtu.be/syfUi_n-tv8" },
     { "_id": "789"
         , "name": "Html2"
         , "widgetType": "HTML"
@@ -183,9 +183,9 @@ function createWidget(request, response) {
     var newWidget = request.body;
 
     for (var w in widgets) {
-        if (widgets[w].name === newWidget.name)    {
+        if (widgets[w].name === newWidget.name && typeof widgets[w].name != 'undefined')    {
             //alert("Website with name '" + website.name + "' already exists !");
-            response.send("0");
+            response.sendStatus(400);
             return null;
         }
     }
@@ -222,4 +222,17 @@ function deleteWidget(request, response) {
     }
     response.sendStatus(404);
     return;
+}
+
+function clean() {
+    for(w in widgets)   {
+        if(typeof widgets[w].name === 'undefined' && typeof widgets[w].text === 'undefined')    {
+            widgets.splice(w, 1);
+        }
+        else if(widgets[w].widgetType === "YOUTUBE" || widgets[w].widgetType === "IMAGE")   {
+            if (typeof widgets[w].url === 'undefined') {
+                widgets.splice(w, 1);
+            }
+        }
+    }
 }

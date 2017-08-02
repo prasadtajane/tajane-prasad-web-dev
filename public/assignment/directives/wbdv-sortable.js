@@ -12,11 +12,11 @@
             element
                 .sortable({
                     start:(function (event, ui) {
-                        console.log($(ui.item).index());
+                        //console.log($(ui.item).index());
                         startIndex=$(ui.item).index();
                     }),
                     stop:(function (event, ui) {
-                        console.log($(ui.item).index());
+                        //console.log($(ui.item).index());
                         stopIndex=$(ui.item).index();
                         scope.sortableController.sort(startIndex, stopIndex)
                     })

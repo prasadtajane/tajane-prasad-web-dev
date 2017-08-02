@@ -22,7 +22,7 @@
         vm.sort = sort;
 
         function sort(start, stop) {
-            console.log([start,stop]);
+            //console.log([start,stop]);
             widgetService.sort(pageId, start, stop);
         }
     }

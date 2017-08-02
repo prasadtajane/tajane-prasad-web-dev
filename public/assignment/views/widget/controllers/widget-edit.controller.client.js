@@ -33,15 +33,16 @@
             model.userId = userId;
             model.widgetId = widgetId;
             model.websiteId = websiteId;
-            widgetService.findWidgetsByPageId(userId, websiteId, pageId)
-                .then(function (response) {
-                    model.widgetList = response.data;
-                    model.widgets = model.widgetList;
-                });
 
             widgetService.findWidgetById(userId, websiteId, pageId, widgetId)
                 .then(function (response) {
                     model.widget = response.data;
+                });
+
+            widgetService.findWidgetsByPageId(userId, websiteId, pageId)
+                .then(function (response) {
+                    model.widgetList = response.data;
+                    model.widgets = model.widgetList;
                 });
             //return model.widgets;
         }

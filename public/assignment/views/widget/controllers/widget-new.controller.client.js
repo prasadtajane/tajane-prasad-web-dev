@@ -63,6 +63,7 @@
         }
         
         function backToWidgets() {
+            widgetService.clean();
             $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
         }
         

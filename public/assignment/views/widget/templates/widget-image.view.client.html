@@ -30,7 +30,7 @@
        ng-model="model.widget.width"/>
 
 <form action="/api/assignment/uploads"    method="post"        enctype="multipart/form-data">
-<input  name="myFile"    type="file" class="form-control taj-bottom-padding"/>
+<input  name="myFile"    type="file" class="form-control taj-bottom-padding" required="required"/>
     <input  name="width"     value="{{model.widget.width}}" style="display: none"/>
     <input  name="userId"    value="{{model.userId}}"       style="display: none"/>
     <input  name="websiteId" value="{{model.websiteId}}"    style="display: none"/>
