@@ -14,8 +14,14 @@
        ng-model="model.widget.text"/>
 
 <label for="headerSize">Size</label>
-<input class="form-control"
-       name="headerSize"
-       id="headerSize"
-       placeholder="1=h1 ... 6=h6"
-       ng-model="model.widget.size"/>
+<select class="form-control"
+        id="headerSize"
+        name="headerSize"
+        ng-model="model.widget.size">
+    <option value="1">1 (XX-Large)</option>
+    <option value="2">2 (X-Large)</option>
+    <option value="3">3 (Medium)</option>
+    <option value="4">4 (Small)</option>
+    <option value="5">5 (X-Small)</option>
+    <option value="6">6 (XX-Small)</option>
+</select>

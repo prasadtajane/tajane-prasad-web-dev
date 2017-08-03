@@ -9,13 +9,13 @@ var widgets = [
         , "name": "Heading1"
         , "widgetType": "HEADING"
         , "pageId": "321"
-        , "size": 2
+        , "size": "2"
         , "text": "GIZMODO"},
     { "_id": "234"
         , "name": "Heading2"
         , "widgetType": "HEADING"
         , "pageId": "321"
-        , "size": 4
+        , "size": "4"
         , "text": "Lorem ipsum"},
     { "_id": "345"
         , "name": "Image1"
@@ -33,7 +33,7 @@ var widgets = [
         , "name": "Heading3"
         , "widgetType": "HEADING"
         , "pageId": "321"
-        , "size": 4
+        , "size": "4"
         , "text": "Lorem ipsum"},
     { "_id": "678"
         , "name": "youtube1"
