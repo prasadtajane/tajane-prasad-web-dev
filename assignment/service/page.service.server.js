@@ -4,11 +4,7 @@
 
 var app = require("../../express");
 
-var pages = [
-    { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem", "visited": "15" },
-    { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem", "visited": "35" },
-    { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem", "visited": "45" }
-];
+var pages = [];
 
 app.get("/api/profile/:userId/website/:websiteId/page",getpages);
 app.get("/api/profile/:userId/website/:websiteId/page/:pageId",findPageById);

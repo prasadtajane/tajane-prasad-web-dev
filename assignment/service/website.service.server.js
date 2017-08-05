@@ -4,15 +4,7 @@
 
 var app = require("../../express");
 
-var websites = [
-    { "_id": "123", "name": "Facebook",    "developerId": "456", "description": "Lorem", "visited": "2000" },
-    { "_id": "234", "name": "Tweeter",     "developerId": "456", "description": "Lorem", "visited": "3000" },
-    { "_id": "456", "name": "Gizmodo",     "developerId": "456", "description": "Lorem", "visited": "4000" },
-    { "_id": "890", "name": "Go",          "developerId": "123", "description": "Lorem", "visited": "5000" },
-    { "_id": "567", "name": "Tic Tac Toe", "developerId": "123", "description": "Lorem", "visited": "6000" },
-    { "_id": "678", "name": "Checkers",    "developerId": "123", "description": "Lorem", "visited": "7000" },
-    { "_id": "789", "name": "Chess",       "developerId": "234", "description": "Lorem", "visited": "7500" }
-];
+var websites = [];
 
 app.get("/api/profile/:userId/website",getWebsites);
 app.get("/api/profile/:userId/website/:websiteId",findWebsiteById);
