@@ -8,9 +8,11 @@ var userSchema = require("./user.schema.server");
 
 var userModel = mongoose.model("UserModel", userSchema);
 
+userModel.findAll = findAll;
 userModel.createUser = createUser;
-userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
+userModel.findUserById = findUserById;
+userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
 
 module.exports = userModel;
@@ -18,11 +20,6 @@ module.exports = userModel;
 User = userModel;
 
 
-
-
-function callback(err, result)   {
-    console.log(result);
-}
 
 
 function createUser(user) {
@@ -38,20 +35,63 @@ function createUser(user) {
     }, callback);
 }
 
-function findUserById(userId){
-    User.findOne({_id:userId},callback);
+function findUserById(userId, callback) {
+    //console.log("inside findByUserId of model! = "+userId);
+    return userModel
+        .findById(
+            userId,
+            function (err, result) {
+                if(err) {
+                    callback(err, null);
+                }
+                else {
+                    callback(null, result);
+            }
+    });
 }
 
-function findAll() {
-    User.find(callback);
+function findAll(callback) {
+    return User
+        .find(
+            function (err, result) {
+                if(err) {
+                    callback(err, null);
+                }
+                else {
+                    callback(null, result);
+                }
+            }
+        );
 }
 
-function findUserByUsername(username)   {
-    User.findOne({username: username}, callback)
+function findUserByUsername(name, callback)   {
+    User
+        .find(
+            {username: name},
+            function (err, result) {
+                if(err) {
+                    callback(err, null);
+                }
+                else {
+                    console.log(result[0]);
+                    callback(null, result[0]);
+                }
+            })
 }
 
-function findUserByCredentials(username, password) {
-    User.findOne({username: username, password: password}, callback);
+function findUserByCredentials(username, password, callback) {
+    User
+        .findOne(
+            {username: username, password: password},
+            function (err, result) {
+                if(err) {
+                    callback(err, null);
+                }
+                else {
+                    console.log(result);
+                    callback(null, result);
+                }
+        });
 }
 
 function updateUser(userId, user)   {
@@ -63,7 +103,8 @@ function deleteUser(userId) {
 }
 
 //findAll();
-//findUserById("59856b789ae0d253e2260271");
+//findUserById("59857d3d4d8f54554ad60a17", callback);
+//       findUserById("59857d3d4d8f54554ad60a19", callback);
 //findUserByUsername("alice");
 //findUserByCreadentials("alice", "alice");
 //var user = { firstName:"alicia", lastName:"wonderWomania" }
@@ -78,4 +119,23 @@ function tryM() {
 
 tryM();*/
 
-
+//
+/*findUserByUsername("alice", function (err, result) {
+    if(err) {
+        console.log(err);
+    }
+    else {
+        console.log(result);
+        return result;
+    }
+});*/
+//
+// findUserById("59857d3d4d8f54554ad60a19", function (err, result) {
+//     if(err) {
+//         console.log(err);
+//     }
+//     else {
+//         console.log(result);
+//         return result;
+//     }
+// });
