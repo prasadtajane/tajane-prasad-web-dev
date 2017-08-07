@@ -92,7 +92,7 @@ function createWebsite(request, response) {
     websiteModel
         .createWebsiteForUser(userId, newWebsite)
         .then(function (user){
-            console.log(user);
+            //console.log(user);
             response.json(user);
         });
     return;

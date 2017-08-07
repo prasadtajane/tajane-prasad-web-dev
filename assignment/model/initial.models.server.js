@@ -57,7 +57,7 @@ var pageSchema = mongoose.Schema({
 
 var widgetSchema = mongoose.Schema({
     _page:String,
-    type:{type: String, enum: ['HEADING', 'IMAGE', 'YOUTUBE', 'HTML', 'INPUT']},//enum
+    widgetType:String,//enum
     name:String,
     text:String,
     placeholder:String,
@@ -86,9 +86,9 @@ var users = [
 ];
 
 var pages = [
-    { "name": "Post 1", "websiteId": "456", "description": "Lorem", "visited": "15" },
-    { "name": "Post 2", "websiteId": "456", "description": "Lorem", "visited": "35" },
-    { "name": "Post 3", "websiteId": "456", "description": "Lorem", "visited": "45" }
+    { "name": "Post 1", "websiteId": "598794d21f784e669ef77978", "description": "Lorem", "visited": "15" },
+    { "name": "Post 2", "websiteId": "598794d21f784e669ef77978", "description": "Lorem", "visited": "35" },
+    { "name": "Post 3", "websiteId": "598794d21f784e669ef77978", "description": "Lorem", "visited": "45" }
 ];
 
 var websites = [
@@ -102,15 +102,15 @@ var websites = [
 ];
 
 var widgets = [
-    { "name": "Heading1",   "widgetType": "HEADING",    "pageId": "321",    "size": "2",    "text": "GIZMODO"},
-    { "name": "Heading2",   "widgetType": "HEADING",    "pageId": "321",    "size": "4",    "text": "Lorem ipsum"},
-    { "name": "Image1",     "widgetType": "IMAGE",      "pageId": "321",    "text": "lorempixel"
+    { "name": "Heading1",   "widgetType": "HEADING",    "pageId": "598794d21f784e669ef77973",    "size": "2",    "text": "GIZMODO"},
+    { "name": "Heading2",   "widgetType": "HEADING",    "pageId": "598794d21f784e669ef77973",    "size": "4",    "text": "Lorem ipsum"},
+    { "name": "Image1",     "widgetType": "IMAGE",      "pageId": "598794d21f784e669ef77973",    "text": "lorempixel"
             , "width": "100%",     "url": "http://lorempixel.com/400/200/"},
-    { "name": "Html1",      "widgetType": "HTML",       "pageId": "321",    "text": "<p>Lorem ipsum</p>"},
-    { "name": "Heading3",   "widgetType": "HEADING",    "pageId": "321",    "size": "4",    "text": "Lorem ipsum"},
-    { "name": "youtube1",   "widgetType": "YOUTUBE",    "pageId": "321",    "text": "321"
+    { "name": "Html1",      "widgetType": "HTML",       "pageId": "598794d21f784e669ef77973",    "text": "<p>Lorem ipsum</p>"},
+    { "name": "Heading3",   "widgetType": "HEADING",    "pageId": "598794d21f784e669ef77973",    "size": "4",    "text": "Lorem ipsum"},
+    { "name": "youtube1",   "widgetType": "YOUTUBE",    "pageId": "598794d21f784e669ef77973",    "text": "321"
             , "width": "100%",     "url": "https://youtu.be/syfUi_n-tv8" },
-    { "name": "Html2",      "widgetType": "HTML",       "pageId": "321",    "text": "<p>Lorem ipsum</p>"}
+    { "name": "Html2",      "widgetType": "HTML",       "pageId": "598794d21f784e669ef77973",    "text": "<p>Lorem ipsum</p>"}
 ];
 
 
@@ -191,7 +191,7 @@ function createWidgetCollection(widgets) {
         for (w in widgets)  {
             Widgets.create({
                     _page:widgets[w].pageId,
-                    type:widgets[w].type,//enum
+                    widgetType:widgets[w].widgetType,//enum
                     name:widgets[w].name,
                     text:widgets[w].text,
                     placeholder:widgets[w].placeholder,
@@ -221,8 +221,8 @@ function createWidgetCollection(widgets) {
     });
 }*/
 
-createUserCollection(users);
-createPageCollection(pages);
-createWebsiteCollection(websites);
+//createUserCollection(users);
+//createPageCollection(pages);
+//createWebsiteCollection(websites);
 createWidgetCollection(widgets);
 //findAll();

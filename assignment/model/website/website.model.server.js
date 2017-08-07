@@ -29,8 +29,6 @@ function findWebsiteById(websiteId){
 }
 
 function findWebsiteByName(websiteName){
-    console.log("inside website model");
-    console.log(websiteName);
     return Website.findOne({name:websiteName});
 }
 

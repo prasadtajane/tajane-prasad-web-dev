@@ -13,6 +13,7 @@ widgetModel.updateWidget = updateWidget;
 widgetModel.deleteWidget = deleteWidget;
 widgetModel.reorderWidget = reorderWidget;
 widgetModel.findWidgetById = findWidgetById;
+widgetModel.findWidgetByName = findWidgetByName;
 widgetModel.findAllWidgetsForPage = findAllWidgetsForPage;
 
 module.exports = widgetModel;
@@ -21,39 +22,38 @@ Widget = widgetModel;
 
 
 
-function callback(err, result)   {
-    console.log(result);
-    return result;
-}
-
-
 function createWidget(pageId, widget) {
-    widget._page = pageId;
-    Widget.create(widget, callback);
-    console.log("widget Created!");
+    console.log("Widget model");
+    console.log(widget);
+    //widget._page = pageId;
+    return Widget.create(widget);
 }
 
 function findWidgetById(widgetId)   {
-    Widget.findOne({_id:widgetId},callback);
+    return Widget.findOne({_id:widgetId});
+}
+
+function findWidgetByName(widgetName)   {
+    return Widget.findOne({name:widgetName});
 }
 
 function findAll() {
-    Widget.find(callback);
+    return Widget.find();
 }
 
 function findAllWidgetsForPage(pageId) {
-    Widget.find({_page: pageId}, callback)
+    return Widget.find({_page: pageId});
 }
 
 function updateWidget(widgetId, widget)   {
-    Widget.update({_id:widgetId}, widget, callback);
+    return Widget.update({_id:widgetId}, {$set: widget});
 }
 
 function deleteWidget(widgetId) {
-    Widget.remove({_id:widgetId}, callback);
+    return Widget.remove({_id:widgetId});
 }
 
-widget={ _page: '321', name: 'Test2345', text: 'Loremo o ipsumo', size: 1};
+//widget={ _page: '321', name: 'Test2345', text: 'Loremo o ipsumo', size: 1};
 
 function reorderWidget(pageId, start, end) {
     // save the start in temp then delete
@@ -84,7 +84,7 @@ function reorderWidget(pageId, start, end) {
 
 }
 
-findAll();
+//findAll();
 //createWidget("59852da4cd24bf4f03ed2694", widget)
 //findAllWidgetsForPage("59852da4cd24bf4f03ed2694")
 //findWidgetById("59853c0ef89d954fcce7aaf5")

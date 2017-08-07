@@ -78,6 +78,7 @@
                 type = 'heading';
             }
             var widget = {
+                "_page": pageId,
                 "widgetType": type.toUpperCase()
             }
             //alert(widget.widgetType);
@@ -87,7 +88,7 @@
                     if(newWidget != "0")  {
                         var newWidgetId = newWidget._id;
                         model.widgetId = newWidgetId;
-                        $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
+                            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
                     }
                 });
         }

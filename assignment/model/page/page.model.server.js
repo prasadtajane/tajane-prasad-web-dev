@@ -12,6 +12,7 @@ pageModel.createPage = createPage;
 pageModel.updatePage = updatePage;
 pageModel.deletePage = deletePage;
 pageModel.findPageById = findPageById;
+pageModel.findPageByName = findPageByName;
 pageModel.findAllPagesForWebsite = findAllPagesForWebsite;
 
 module.exports = pageModel;
@@ -20,35 +21,33 @@ Page = pageModel;
 
 
 
-function callback(err, result)   {
-    console.log(result);
-}
-
 
 function createPage(websiteId, page) {
-    page._website = websiteId;
-    Page.create(page, callback);
-    console.log("page Created!");
+    return Page.create(page);
 }
 
 function findPageById(pageId){
-    Page.findOne({_id:pageId},callback);
+    return Page.findOne({_id:pageId});
 }
 
 function findAll() {
-    Page.find(callback);
+    return Page.find();
+}
+
+function findPageByName(pageName)   {
+    return Page.findOne({name: pageName});
 }
 
 function findAllPagesForWebsite(websiteId) {
-    Page.find({_website: websiteId}, callback)
+    return Page.find({_website: websiteId})
 }
 
 function updatePage(pageId, page)   {
-    Page.update({_id:pageId}, page, callback);
+    return Page.update({_id:pageId},{$set: page});
 }
 
 function deletePage(pageId) {
-    Page.remove({_id:pageId}, callback);
+    return Page.remove({_id:pageId});
 }
 
 
