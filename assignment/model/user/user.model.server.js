@@ -11,6 +11,7 @@ var userModel = mongoose.model("UserModel", userSchema);
 userModel.findAll = findAll;
 userModel.createUser = createUser;
 userModel.updateUser = updateUser;
+userModel.deleteUser = deleteUser;
 userModel.findUserById = findUserById;
 userModel.findUserByUsername = findUserByUsername;
 userModel.findUserByCredentials = findUserByCredentials;
@@ -23,16 +24,8 @@ User = userModel;
 
 
 function createUser(user) {
-    User.create({
-        username:arrayName[a].username,
-        password:arrayName[a].password,
-        firstName:arrayName[a].firstName,
-        lastName:arrayName[a].lastName,
-        email:arrayName[a].email,
-        contact:arrayName[a].contact,
-        isAdmin:arrayName[a].isAdmin,
-        dateCreated:arrayName[a].dateCreated
-    }, callback);
+    console.log(user);
+    return User.create(user);
 }
 
 function findUserById(userId, callback) {
@@ -64,42 +57,24 @@ function findAll(callback) {
         );
 }
 
-function findUserByUsername(name, callback)   {
-    User
-        .find(
-            {username: name},
-            function (err, result) {
-                if(err) {
-                    callback(err, null);
-                }
-                else {
-                    console.log(result[0]);
-                    callback(null, result[0]);
-                }
-            })
+function findUserByUsername(name)   {
+    return userModel
+        .findOne({username: name})
 }
 
 function findUserByCredentials(username, password, callback) {
-    User
+    return User
         .findOne(
-            {username: username, password: password},
-            function (err, result) {
-                if(err) {
-                    callback(err, null);
-                }
-                else {
-                    console.log(result);
-                    callback(null, result);
-                }
-        });
+            {username: username, password: password});
 }
 
 function updateUser(userId, user)   {
-    User.update({_id:userId}, user, callback);
+    return userModel.update({_id:userId}, {$set: user});
 }
 
+
 function deleteUser(userId) {
-    User.remove({_id:userId}, callback);
+    return User.remove({_id:userId});
 }
 
 //findAll();
@@ -139,3 +114,17 @@ tryM();*/
 //         return result;
 //     }
 // });
+
+/*var user = { username: 'a', password: 'a'};
+console.log
+("call create User");
+createUser(user
+    , function (err, result) {
+        if(err) {
+            console.log(err);
+        }
+        else {
+            console.log(result);
+            return result;
+        }}
+    );*/

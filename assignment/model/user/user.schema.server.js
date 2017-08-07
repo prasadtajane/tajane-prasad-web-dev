@@ -9,7 +9,7 @@ var userSchema = new mongoose.Schema({
     firstName:String,
     lastName:String,
     email:String,
-    contact:String,
+    contact:Number,
     dateCreated:{type:Date,default:Date.now()},
     isAdmin:{type:Boolean, default:false}
 

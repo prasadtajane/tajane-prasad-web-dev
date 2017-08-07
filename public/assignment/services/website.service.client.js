@@ -29,6 +29,8 @@
         }
 
         function findWebsiteByName(userId, websiteName) {
+            //console.log([userId, websiteName]);
+            //console.log("/api/profile/" + userId + "/website?websiteName=" + websiteName);
             return $http.get("/api/profile/" + userId + "/website?websiteName=" + websiteName);
         }
 

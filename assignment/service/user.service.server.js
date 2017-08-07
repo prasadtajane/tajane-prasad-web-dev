@@ -41,19 +41,27 @@ function findUserByUsernameAndPassword(request, response)  {
     userModel
         .findUserByCredentials(
             request.query.username
-            , request.query.password
-            , callback)
+            , request.query.password)
         .then(function (user) {
+            console.log(user);
             response.json(user);
+            return;
+        }, function (err) {
+            response.sendStatus(404).send(err);
+            return;
         });
 }
 
 function findUserByUsername(request, response) {
     userModel
-        .findUserByUsername(request.query.username, callback)
+        .findUserByUsername(request.query.username)
         .then(function (user) {
             console.log(user);
             response.json(user);
+            return;
+        }, function (err) {
+            response.sendStatus(404).send(err);
+            return;
         });
 }
 
@@ -66,9 +74,8 @@ function getAllUsers(request, response) {
 }
 
 function findUserById(request, response) {
-    //console.log(request.params.userId);
-
-    userModel
+    //console.log(request.params.userId)
+    return  userModel
         .findUserById(request.params.userId, callback)
         .then(function (user) {
             response.json(user);
@@ -78,36 +85,43 @@ function findUserById(request, response) {
 
 function createUser(request, response) {
     var newuser = request.body;
-    newuser._id = (new Date()).getTime() + "";
-    users.push(newuser);
-    response.send(newuser);
-    return;
+    //console.log("user service")
+    //console.log(newuser);
+
+    userModel
+        .createUser(newuser)
+        .then(function (user){
+            console.log(user);
+            response.json(user);
+        });
+    //return;
 }
 
 function updateUserByUserId(request, response) {
     var userId = request.params.userId;
     var user = request.body;
+    //console.log([user, userId]);
 
-    for(var u in users) {
-        if( users[u]._id === userId ) {
-            users[u] = user;
-            response.send(users[u]);
-            return;
-        }
-    }
-    response.sendStatus(404);
+    userModel
+        .updateUser(userId,user)
+        .then(function (status){
+            //console.log(status);
+            response.json(status);
+        },function (err){
+            //console.log(err);
+            response.sendStatus(404).send(err);
+        });
     return;
 }
 
 function deleteUserByUserId(request, response) {
     var userId = request.params.userId;
-    for(var u in users) {
-        if (users[u]._id === userId) {
-            users.splice(u,1);
+    userModel
+        .deleteUser(userId)
+        .then(function (user) {
             response.send("200");
-            return;
-        }
-    }
-    response.sendStatus(404);
+        }, function (err) {
+            response.sendStatus(404).send(err);
+        });
     return;
 }

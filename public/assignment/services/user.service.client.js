@@ -42,6 +42,7 @@
         }
 
         function createUser(newuser)   {
+            console.log(newuser);
             return $http.post("/api/profile/", newuser);
         }
 

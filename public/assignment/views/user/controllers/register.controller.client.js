@@ -18,6 +18,7 @@
 
         model.register = (
             function (user) {
+                //console.log(user);
                 if (user.password1 === user.password2 && typeof user.password1 !== "undefined")   {
 
                     if (user.username === null || user.username === '' || typeof user.username === 'undefined')   {
@@ -29,7 +30,13 @@
                         userService.findUserByUsername(user.username)
                             .then( function (response) {
                                 model.inuser = response.data;
-                                if(model.inuser === "0")   {
+                                //console.log("model . inuser");
+                                //  console.log(model.inuser);
+                                /*if(model.inuser !== 'null')   {
+                                    alert("Sorry username '" + model.inuser.username + "' already exists !");
+                                }
+                                else */
+                                {
                                     alert("Welcome " + user.username + " !!!")
                                     var newUser = {
                                         username:user.username,
@@ -41,9 +48,6 @@
                                             alert("Hey, " + user.username + " your userId is " + newUser._id);
                                             $location.url("/profile/" + newUser._id);
                                         });
-                                }
-                                else  {
-                                    alert("Sorry username '" + model.inuser.username + "' already exists !");
                                 }
                             });
                     }

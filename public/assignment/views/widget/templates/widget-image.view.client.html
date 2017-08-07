@@ -29,6 +29,13 @@
        type="tetx"s
        ng-model="model.widget.width"/>
 
+<div class="taj-bottom-margin">
+    <a class="btn btn-block btn-info"
+       href="#!/profile/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{model.widget._id}}/search">
+        Search Image
+    </a>
+</div>
+
 <form action="/api/assignment/uploads"    method="post"        enctype="multipart/form-data">
 <input  name="myFile"    type="file" class="form-control taj-bottom-padding" required="required"/>
     <input  name="width"     value="{{model.widget.width}}" style="display: none"/>

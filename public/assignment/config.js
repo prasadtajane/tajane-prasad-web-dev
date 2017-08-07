@@ -92,6 +92,14 @@
                 controllerAs: "model"
             })
 
+
+            .when("/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetId/search", {
+                ///profile/456/website/456/page/321/widget/345/search
+                templateUrl:"views/widget/templates/widget-flickr-search.view.client.html",
+                controller: "flickrController",
+                controllerAs: "model"
+            })
+
     }
 
 

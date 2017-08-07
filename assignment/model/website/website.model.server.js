@@ -5,11 +5,12 @@ var mongoose = require('mongoose');
 var db = require("../models.server");
 
 var websiteSchema = require("./website.schema.server");
-var websiteModel = mongoose.model("UserModel", websiteSchema);
+var websiteModel = mongoose.model("WebsiteModel", websiteSchema);
 
 websiteModel.updateWebsite = updateWebsite;
 websiteModel.deleteWebsite = deleteWebsite;
 websiteModel.findWebsiteById = findWebsiteById;
+websiteModel.findWebsiteByName = findWebsiteByName;
 websiteModel.createWebsiteForUser = createWebsiteForUser;
 websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
 
@@ -19,47 +20,43 @@ Website = websiteModel;
 
 
 
-function callback(err, result)   {
-    console.log(result);
-}
-
-
 function createWebsiteForUser(userId, website) {
-    Website.create({
-        _user:userId,
-        name:website.name,
-        description:website.description,
-        pages:website.pages,
-        dateCreated:website.dateCreated
-    }, callback);
-    console.log("Website Created!");
+    return Website.create(website);
 }
 
 function findWebsiteById(websiteId){
-    Website.findOne({_id:websiteId},callback);
+    return Website.findOne({_id:websiteId});
+}
+
+function findWebsiteByName(websiteName){
+    console.log("inside website model");
+    console.log(websiteName);
+    return Website.findOne({name:websiteName});
 }
 
 function findAll() {
-    Website.find(callback);
+    return Website.find(callback);
 }
 
 function findAllWebsitesForUser(userId) {
-    Website.find({_user: userId}, callback)
+    //console.log(userId);
+    return Website.find({_user: userId})
 }
 
 function updateWebsite(websiteId, website)   {
-    Website.update({_id:websiteId}, website, callback);
+    return Website.update({_id:websiteId}, {$set: website});
 }
 
 function deleteWebsite(websiteId) {
-    Website.remove({_id:websiteId}, callback);
+    return Website.remove({_id:websiteId});
 }
 
 
 //website = {"_user" : "59852da4cd24bf4f03ed2690", "name" : "Checkmate", "description" : "M"}
 //createWebsiteForUser("59852da4cd24bf4f03ed2690", website);
 //findAll();
-//findAllWebsitesForUser("59852da4cd24bf4f03ed2690");
+//console.log("print");
+//findAllWebsitesForUser("456");
 //findWebsiteById("59852fe522c8f94f25051eed");
 //website = {"_user" : "59852da4cd24bf4f03ed6699", "name" : "Checker", "description" : "Moto"}
 //updateWebsite("59852fe522c8f94f25051eed", website);
