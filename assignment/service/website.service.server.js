@@ -115,13 +115,11 @@ function updateWebsite(request, response) {
 }
 
 function deleteWebsite(request, response) {
+    var userId = request.params.userId;
     var websiteId = request.params.websiteId;
-    websiteModel
-        .deleteWebsite(websiteId)
-        .then(function (user) {
+    return websiteModel
+        .deleteWebsite(userId, websiteId)
+        .then(function (status) {
             response.send("200");
-        }, function (err) {
-            response.sendStatus(404).send(err);
         });
-    return;
 }

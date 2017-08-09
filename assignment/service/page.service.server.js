@@ -91,9 +91,10 @@ function updatePage(request, response) {
 
 function deletePage(request, response) {
     var pageId = request.params.pageId;
+    var websiteId = request.params.websiteId;
 
     return pageModel
-        .deletePage(pageId)
+        .deletePage(websiteId, pageId)
         .then(function (page) {
             response.send("200");
         }, function (err) {

@@ -68,10 +68,8 @@
             //alert("Inside delete website");
             pageService.deletePage(userId, websiteId, pageId)
                 .then(function (response) {
-                    var code = response.data;
-                    if (code === "200") {
-                        $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
-                    }
+                    $location.url("/profile/" + userId + "/website/" + websiteId + "/page");
+
                 });
         }
         

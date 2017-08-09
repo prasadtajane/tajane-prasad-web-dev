@@ -85,11 +85,9 @@
             widgetService.createWidget(userId, websiteId, pageId, widget)
                 .then(function (response) {
                     var newWidget = response.data;
-                    if(newWidget != "0")  {
-                        var newWidgetId = newWidget._id;
-                        model.widgetId = newWidgetId;
-                            $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
-                    }
+                    var newWidgetId = newWidget._id;
+                    model.widgetId = newWidgetId;
+                    $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + newWidgetId);
                 });
         }
 

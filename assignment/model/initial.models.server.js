@@ -224,5 +224,5 @@ function createWidgetCollection(widgets) {
 //createUserCollection(users);
 //createPageCollection(pages);
 //createWebsiteCollection(websites);
-createWidgetCollection(widgets);
+//createWidgetCollection(widgets);
 //findAll();

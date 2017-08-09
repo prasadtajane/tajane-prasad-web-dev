@@ -63,13 +63,8 @@
         function deleteWebsite()   {
             //alert("Inside delete website");
             websiteService.deleteWebsite(userId, websiteId)
-                .then(function (response) {
-                    if (response.data === "200")  {
-                        $location.url("/profile/" + userId + "/website");
-                    }
-                    else    {
-                        alert("Deletion Failed!")
-                    }
+                .then(function () {
+                    $location.url("/profile/" + userId + "/website");
                 });
 
         }

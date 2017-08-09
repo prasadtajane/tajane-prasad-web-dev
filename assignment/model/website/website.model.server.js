@@ -4,12 +4,16 @@
 var mongoose = require('mongoose');
 var db = require("../models.server");
 
+var userModel = require("../user/user.model.server");
+
 var websiteSchema = require("./website.schema.server");
 var websiteModel = mongoose.model("WebsiteModel", websiteSchema);
 
+websiteModel.removePage = removePage;
 websiteModel.updateWebsite = updateWebsite;
 websiteModel.deleteWebsite = deleteWebsite;
 websiteModel.findWebsiteById = findWebsiteById;
+websiteModel.addPageInWebsite = addPageInWebsite;
 websiteModel.findWebsiteByName = findWebsiteByName;
 websiteModel.createWebsiteForUser = createWebsiteForUser;
 websiteModel.findAllWebsitesForUser = findAllWebsitesForUser;
@@ -20,8 +24,38 @@ Website = websiteModel;
 
 
 
+function addPageInWebsite(websiteId, pageId)  {
+    return websiteModel
+        .findById(websiteId)
+        .then(function (website) {
+            website.pages.push(pageId);
+            return website.save();
+        })
+}
+
+//function removeWebsite(userId, websiteId) {
+function removePage(websiteId, pageId) {
+    return websiteModel
+        .findById(websiteId)
+        .then(function (website) {
+            var index = website.pages.indexOf(pageId);
+            website.pages.splice(index, 1);
+            return website.save();
+        });
+}
+
 function createWebsiteForUser(userId, website) {
-    return Website.create(website);
+    var tempWebsite = null;
+    return Website
+        .create(website)
+        .then(function (website) {
+            tempWebsite = website;
+            userModel
+                .addWebsiteInUser(userId, website._id)
+                .then(function (user) {
+                    return tempWebsite;
+                });
+        })
 }
 
 function findWebsiteById(websiteId){
@@ -45,8 +79,13 @@ function updateWebsite(websiteId, website)   {
     return Website.update({_id:websiteId}, {$set: website});
 }
 
-function deleteWebsite(websiteId) {
-    return Website.remove({_id:websiteId});
+function deleteWebsite(userId, websiteId) {
+    return Website
+        .remove({_id: websiteId})
+        .then(function (status) {
+            return userModel
+                .removeWebsite(userId, websiteId);
+        });
 }
 
 

@@ -5,7 +5,7 @@
 var app = require("../../express");
 var widgetModel = require("../model/widget/widget.model.server");
 
-var widgets = [];
+//var widgets = [];
 
 var multer = require('multer'); // npm install multer --save
 var upload = multer({ dest: __dirname+'/../../public/assignment/uploads' });
@@ -27,12 +27,19 @@ function sortable(request, response) {
     var end = request.query.final;
     console.log("Inside Server");
     console.log([start, end]);
-    widgets.splice(end, 0, (widgets.splice(start, 1))[0]);
-    response.sendStatus(200);
+    //widgets.splice(end, 0, (widgets.splice(start, 1))[0]);
+
+    widgetModel
+        .reorderWidget(start, end)
+        .then(function (err, result) {
+            response.sendStatus(200);
+        });
     return;
 }
 
 function uploadImage(req, res) {
+
+    var widget        = req.body;
 
     var widgetId      = req.body.widgetId;
     var width         = req.body.width;
@@ -53,13 +60,41 @@ function uploadImage(req, res) {
     var width         = myFile.widhth;
     var text          = myFile.text;
 
-    var widget = getWidgetById(widgetId);
-    widget.url = '/assignment/uploads/'+myFile.filename ;
+    /*getWidgetById(widgetId)
+        .then(function (widget) {
+            console.log("widget service - function call");
+            console.log(widget);
+            widget.url = '/assignment/uploads/'+myFile.filename ;
+            widget.myFile = myFile;
+            widget.name = name;
+            widget.width = width;
+            widget.text = text;
+            console.log("widget service - after setting property");
+            console.log(widget);return widgetModel;
+            widgetModel
+                .updateWidget(widgetId, widget)
+                .then(function (widget) {
+                    return widget;
+                });
+        });*/
 
+    console.log(widget);
+    widget.url = '/assignment/uploads/'+myFile.filename ;
     widget.myFile = myFile;
     widget.name = name;
     widget.width = width;
     widget.text = text;
+    console.log("widget service - after setting property");
+    console.log(widget);
+
+    widgetModel
+        .updateWidget(widgetId, widget)
+        .then(function (widget) {
+            return widget;
+        }, function (err) {
+            console.log(err);
+            return err;
+        });
 
     //  /api/profile/:userId/website/:websiteId/page/:pageId/widget
     //  http://localhost:3000/assignment/index.html#!/profile/456/website/456/page/321/widget
@@ -113,10 +148,12 @@ function findWidgetById(request, response) {
 }
 
 function getWidgetById(widgetId) {
-    widgetModel
+    return widgetModel
     .findWidgetById(widgetId)
     .then(function (widget) {
         //response.json(widget)
+        console.log("widget service getwidgetbyid");
+        console.log(widget);
         return widget;
     }, function (err) {
         //response.sendStatus(404).send(err);
@@ -129,18 +166,17 @@ function getWidgetById(widgetId) {
 function createWidget(request, response) {
     var pageId = request.params.pageId;
     var newWidget = request.body;
+    newWidget._page = pageId;
 
-    console.log("Widget Server");
-    console.log(newWidget);
+    //console.log("Widget Server");
+    //console.log(newWidget);
 
-    //newWidget._page = pageId;
-
-    return widgetModel
+    widgetModel
         .createWidget(pageId, newWidget)
         .then(function (widget) {
             console.log("Widget Server - after reply from model");
             console.log(widget);
-            response.json(widget);
+            return response.json(widget);
         });
 }
 
@@ -158,10 +194,11 @@ function updateWidget(request, response) {
 }
 
 function deleteWidget(request, response) {
+    var pageId = request.params.pageId;
     var widgetId = request.params.widgetId;
 
     return widgetModel
-        .deleteWidget(widgetId)
+        .deleteWidget(pageId, widgetId)
         .then(function (widget) {
             response.send("200");
         }, function (err) {
@@ -170,6 +207,7 @@ function deleteWidget(request, response) {
 }
 
 function clean() {
+    var widgets = widgetModel.findAll();
     for(w in widgets)   {
         if(typeof widgets[w].name === 'undefined' && typeof widgets[w].text === 'undefined')    {
             var delWidget = widgets[w];

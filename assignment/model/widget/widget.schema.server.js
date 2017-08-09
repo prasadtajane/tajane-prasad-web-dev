@@ -5,7 +5,7 @@
 var mongoose = require("mongoose");
 
 var widgetSchema = new mongoose.Schema({
-    _page:String,
+    _page:{type:mongoose.Schema.Types.ObjectId, ref:"PageModel"},
     widgetType:String,//enum
     name:String,
     text:String,

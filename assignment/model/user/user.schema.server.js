@@ -11,7 +11,8 @@ var userSchema = new mongoose.Schema({
     email:String,
     contact:Number,
     dateCreated:{type:Date,default:Date.now()},
-    isAdmin:{type:Boolean, default:false}
+    isAdmin:{type:Boolean, default:false},
+    _websites:[{type:mongoose.Schema.Types.ObjectId, ref:"WebsiteModel"}]
 
 }, {     collection:"user"    });
 

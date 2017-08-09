@@ -65,7 +65,7 @@
                 .updatePhoto(model.userId,model.websiteId,model.pageId,model.widgetId,photoWidgetUrl)
                 .then(function (widget){
                     model.widget=widget;
-                    $location.url('/profile/'+ model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + widget._id);
+                    $location.url('/profile/'+ model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + widgetId);
                 });
         }
         // ng-src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_s.jpg"

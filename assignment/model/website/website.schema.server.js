@@ -6,10 +6,10 @@ var mongoose = require("mongoose");
 
 var websiteSchema = new mongoose.Schema(
     {
-        _user:String,
+        _user:{type:mongoose.Schema.Types.ObjectId, ref:"UserModel"},
         name:String,
         description:String,
-        pages:String,
+        pages:[{type:mongoose.Schema.Types.ObjectId, ref:"PageModel"}],
         dateCreated:{type:Date, default:Date.now()}
     },
     {collection: "website"});

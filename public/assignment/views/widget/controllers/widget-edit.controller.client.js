@@ -65,9 +65,8 @@
         function deleteWidget() {
             widgetService.deleteWidget(userId, websiteId, pageId, widgetId)
                 .then(function (response) {
-                    if(response.data === "200") {
-                        $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
-                    }
+                    $location.url("/profile/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget");
+
                 });
         }
 

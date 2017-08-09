@@ -6,8 +6,10 @@ var mongoose = require('mongoose');
 var db = require("../models.server");
 
 var widgetSchema = require("./widget.schema.server");
+var pageModel = require("../page/page.model.server");
 var widgetModel = mongoose.model("WidgetModel", widgetSchema);
 
+widgetModel.findAll = findAll;
 widgetModel.createWidget = createWidget;
 widgetModel.updateWidget = updateWidget;
 widgetModel.deleteWidget = deleteWidget;
@@ -23,10 +25,20 @@ Widget = widgetModel;
 
 
 function createWidget(pageId, widget) {
-    console.log("Widget model");
-    console.log(widget);
-    //widget._page = pageId;
-    return Widget.create(widget);
+    var tempWidget = null;
+    return Widget
+        .create(widget)
+        .then(function (widget) {
+            tempWidget = widget;
+            console.log("widget model");
+            console.log(tempWidget);
+            return pageModel
+                .addWidgetInPage(pageId, widget._id)
+                .then(function (page) {
+                    console.log(tempWidget);
+                    return tempWidget;
+                });
+        });
 }
 
 function findWidgetById(widgetId)   {
@@ -38,7 +50,7 @@ function findWidgetByName(widgetName)   {
 }
 
 function findAll() {
-    return Widget.find();
+    Widget.find();
 }
 
 function findAllWidgetsForPage(pageId) {
@@ -49,39 +61,39 @@ function updateWidget(widgetId, widget)   {
     return Widget.update({_id:widgetId}, {$set: widget});
 }
 
-function deleteWidget(widgetId) {
-    return Widget.remove({_id:widgetId});
+function deleteWidget(pageId, widgetId) {
+    return Widget
+        .remove({_id: widgetId})
+        .then(function (status) {
+            return pageModel
+                .removeWidget(pageId, widgetId);
+        });
 }
 
 //widget={ _page: '321', name: 'Test2345', text: 'Loremo o ipsumo', size: 1};
 
-function reorderWidget(pageId, start, end) {
+function reorderWidget(start, end) {
     // save the start in temp then delete
     // start from end go till length
     //      save current in newTemp
     //      update current with temp
     //      make temp as newTemp
-    var widgets = findAll();
 
-    for(w in widgets)   {
-        if (start === end)  {
-            break;
-        }
-        if(start < end)    {
-            if (w < start)  {
-                continue;
-            }
-            else if(w === start)   {
-                var affectedWidget = widgets[w];
-                var affectedWidgetId = widgets[w]._id;
-                var wId = affectedWidgetId;
-            }
-            else if(w < end)    {
-                var temp = widgets[w];
-            }
-        }
-    }
+    return Widget
+        .find(function(err, result)  {
+            widgets = result;
+            widgets.splice(end, 0, (widgets.splice(start, 1))[0]);
 
+            Widget.remove({});
+
+            for(w in widgets)   {
+                Widget
+                    .create(widgets[w])
+                    .then(function (err, result) {
+                        console.log(err);
+                    });
+            }
+        });
 }
 
 //findAll();
