@@ -23,14 +23,15 @@ app.delete("/api/profile/:userId/website/:websiteId/page/:pageId/widget/:widgetI
 app.put("/api/page/:pageId/widget", sortable);
 
 function sortable(request, response) {
-    var start = request.query.initial;
     var end = request.query.final;
+    var start = request.query.initial;
+    var pageId = request.params.pageId;
     console.log("Inside Server");
     console.log([start, end]);
     //widgets.splice(end, 0, (widgets.splice(start, 1))[0]);
 
     widgetModel
-        .reorderWidget(start, end)
+        .reorderWidget(pageId, start, end)
         .then(function (err, result) {
             response.sendStatus(200);
         });
@@ -130,6 +131,7 @@ function findWidgetsByPageId(request, response) {
     return widgetModel
         .findAllWidgetsForPage(pageId)
         .then(function (widget) {
+            console.log(widget);
             response.json(widget)
         }, function (err) {
             response.sendStatus(404).send(err);

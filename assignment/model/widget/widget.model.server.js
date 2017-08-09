@@ -54,7 +54,14 @@ function findAll() {
 }
 
 function findAllWidgetsForPage(pageId) {
-    return Widget.find({_page: pageId});
+    return pageModel
+        .findPageById(pageId)
+        .populate('widgets')
+        .exec()
+        .then(function (page) {
+            //console.log(page);
+            return page.widgets;
+        });
 }
 
 function updateWidget(widgetId, widget)   {
@@ -72,19 +79,38 @@ function deleteWidget(pageId, widgetId) {
 
 //widget={ _page: '321', name: 'Test2345', text: 'Loremo o ipsumo', size: 1};
 
-function reorderWidget(start, end) {
+function reorderWidget(pageId, start, end) {
     // save the start in temp then delete
     // start from end go till length
     //      save current in newTemp
     //      update current with temp
     //      make temp as newTemp
 
-    return Widget
+
+    return pageModel
+        .findPageById(pageId)
+        .populate('widgets')
+        .exec()
+        .then(function (page) {
+            console.log("page");
+            var widgets = page.widgets;
+            widgets.splice(end, 0, (widgets.splice(start, 1))[0]);
+            page.widgets = widgets;
+            return pageModel
+                .updatePage(pageId,page)
+                .then(function (status){
+                    console.log(widgets);
+                    return widgets;
+                });
+            // page.widgets = widgets;
+            // console.log(widgets);
+            // return widgets;
+        });
+
+    /*return Widget
         .find(function(err, result)  {
             widgets = result;
             widgets.splice(end, 0, (widgets.splice(start, 1))[0]);
-
-            Widget.remove({});
 
             for(w in widgets)   {
                 Widget
@@ -92,8 +118,10 @@ function reorderWidget(start, end) {
                     .then(function (err, result) {
                         console.log(err);
                     });
+                Widget.remove({});
+
             }
-        });
+        });*/
 }
 
 //findAll();
