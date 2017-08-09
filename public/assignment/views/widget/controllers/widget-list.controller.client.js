@@ -40,6 +40,7 @@
 
         function getSnippetUrl(type) {
             //alert(type);
+            console.log(type.toLowerCase());
             return ("views/widget/templates/snippets/widget-" + type.toLowerCase() + "-snippet.view.client.html");
         }
 
