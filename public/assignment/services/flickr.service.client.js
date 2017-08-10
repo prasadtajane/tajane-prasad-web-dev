@@ -7,8 +7,8 @@
         .factory("flickrService",flickrService);
 
     function flickrService($http) {
-        var key = "7f525557b1a23854b756ea7055a6d4ce";
-        var secret = "0d3fec51f8d53982";
+        var key = "a3b7589fe9025dd1505d7ff171ba0373";
+        var secret = "1e125bb9c810c36c";
         var url = "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=" + key +"&text=";
 
         var api= {
