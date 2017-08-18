@@ -2,36 +2,237 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Web Dev Course Home Page</title>
+    <title>Homepage</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://use.fontawesome.com/4e769605e6.js"></script>
+    <link href="assignment/css/style.css" type="text/css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Patua+One" rel="stylesheet">
+
 </head>
 <body>
-    <h1>Web Dev Course Home Page</h1>
+<!-- TODO navbar collapse when screen small -->
 
-    <p>
-        This is your website's home page. Your home page should have a picture of yourself, link to your assignments,
-        link to your final project implementation on Heroku, link to your GitHub,
-        link to a 5 minute video demoing your project. Your home page should look
-        spectacular. You should feel proud to share your homepage with your potential employer.
-        I should feel proud to share your homepage with my colleagues.
-    </p>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#lauraMenu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">CS5610</a>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right navbar-border">
+                <li><a href="#main-header">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <h2>Required links</h2>
-    <ul>
-        <li>
-            <a href="project/index.html">Project</a>
-        </li>
-        <li>
-            <a href="assignment/">Assignment</a>
-        </li>
-        <li>
-            <a href="test/index.html">Test MongoDB</a>
-        </li>
-        <li>
-            <a href="https://github.com/prasadtajane/tajane-prasad-web-dev">Your public repository at GitHub.com</a>
-        </li>
-        <li>
-            <a href="/lectures">Lectures</a>
-        </li>
-    </ul>
+<header>
+    <div class="intro-heading"><img src="uploads/tech.jpeg" class="img-responsive"></div>
+</header>
+<!-- Services Section -->
+<section id="about" class="bg-light-gray">
+    <div class="container">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">About Me</h2>
+            <img src="uploads/Me.jpeg"  class="img-circle">
+            <h3 class="section-subheading text-muted"></h3>
+        </div>
+        <p class="large">
+            My name is Prasad Tajane, being born in the poetic state of India, Maharashtra have got little bit phylosophical background.
+            I have done B.Tech from V.J.T.I. which is ranked among top 3 universities of the state and
+            have two and half years of professional experience as a software developer.
+            I am good at java, python, mysql and shell scripting language, also have strong web development background.
+            Apart from this, I like to learn new things and go on hiking. I like organizing events
+            and have headed a position of COO of internation techno-managemnt festival of India.
+        </p>
+
+    </div>
+</section>
+<!-- Portfolio Grid Section -->
+<section id="portfolio">
+    <div class="container">
+
+        <div class="text-center">
+            <h2>Current Work</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="https://healthcare-management-system.herokuapp.com/assignment/#!/"
+                   class="portfolio-link"
+                   data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <h3>Project</h3>
+                    </div>
+                    <img src="uploads/service2.jpg"
+                         class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>HealthCare System</h4>
+                    <p class="text-muted">An application to track your health</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="https://tajane-prasad-web-dev.herokuapp.com/assignment/#!/">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <h3>Assignment</h3>
+                        </div>
+                    </div>
+                    <img src="uploads/web-application-banner.png"
+                         class="img-responsive taj-top-margin  taj-top-margin" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Website Development System</h4>
+                    <p class="text-muted">Application to build blogs and web sites</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+
+                <a href="https://github.com/prasadtajane">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <h3>Repository</h3>
+                        </div>
+                    </div>
+                    <img src="uploads/repository.jpeg" class="img-responsive">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>Upcoming Projects</h4>
+                    <p class="text-muted">Professional and personal work</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills" class="bg-light-gray">
+    <div class="container">
+        <div class="col-lg-12 text-center">
+            <h2 class="section-heading">Technical Skills</h2>
+        </div>
+        <div class="row col-list">
+            <div class="col-md-4 t1">
+                <div class="col-head text-center">
+                    <h4 class="col-title">Web Development</h4>
+                </div>
+                <ul class="list-unstyled left-margin-130">
+                    <li>
+                        <p>HTML/CSS</p>
+                    </li>
+                    <li>
+                        <p>Bootstrap</p>
+                    </li>
+                    <li>
+                        <p>Jquery</p>
+                    </li>
+                    <li>
+                        <p>Angular JS</p>
+                    </li>
+                    <li>
+                        <p>JSON</p>
+                    </li>
+                    <li>
+                        <p>Node JS</p>
+                    </li>
+                    <li>
+                        <p>Hibernate</p>
+                    </li>
+                    <li>
+                        <p>Spring Framework</p>
+                    </li>
+                    <li>
+                        <p>SQL</p>
+                    </li>
+                    <li>
+                        <p>MongoDB</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 t2">
+                <div class="col-head text-center">
+                    <h4 class="col-title">Languagest</h4>
+                </div>
+                <ul class="list-unstyled left-margin-150">
+
+                    <li>
+                        <p>Python</p>
+                    </li>
+                    <li>
+                        <p>Java7/8</p>
+                    </li>
+                    <li>
+                        <p>MySQL</p>
+                    </li>
+                    <li>
+                        <p>Shell Scripting</p>
+                    </li>
+                    <li>
+                        <p>C/C++</p>
+                    </li>
+                    <li>
+                        <p>Racket</p>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-4 t3">
+                <div class="col-head text-center">
+                    <h4 class="col-title">Tools</h4>
+                </div>
+                <ul class="list-unstyled left-margin-150">
+
+                    <li>
+                        <p>Autosys</p>
+                    </li>
+                    <li>
+                        <p>Informatica</p>
+                    </li>
+                    <li>
+                        <p>Tomcat Server</p>
+                    </li>
+                    <li>
+                        <p>DockerX</p>
+                    </li>
+                    <li>
+                        <p>EnginX</p>
+                    </li>
+                    <li>
+                        <p>JasperSoft</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="contact" class="bg-darkest-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Contact Me</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="in-line text-center">
+                <a href="https://github.com/prasadtajane" class="btn btn-lg btn-github">
+                    <span class="fa fa-github"></span>
+                </a>
+                <a href="mailto:tajane.pr@husky.neu.edu" class="btn btn-lg btn-email">
+                    <span class="glyphicon glyphicon-envelope"></span> </a>
+            </div>
+
+        </div>
+    </div>
+</section>
 </body>
-</html>

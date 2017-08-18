@@ -99,7 +99,7 @@ function uploadImage(req, res) {
 
     //  /api/profile/:userId/website/:websiteId/page/:pageId/widget
     //  http://localhost:3000/assignment/index.html#!/profile/456/website/456/page/321/widget
-    var callbackUrl   = "/assignment/index.html#!/profile/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId;
+    var callbackUrl   = "/assignment/Oldindex.html#!/profile/"+userId+"/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId;
 
     res.redirect(callbackUrl);
 }
