@@ -14,6 +14,6 @@ Heroku     :-  https://dashboard.heroku.com/apps/tajane-prasad-web-dev
 Git        :-  https://github.com/prasadtajane/tajane-prasad-web-dev
 
 
-Project    :-  https://tajane-prasad-web-dev.herokuapp.com/project/index.html
+Project    :-  https://healthcare-management-system.herokuapp.com/assignment/#!/
 
 Assignment :-  https://tajane-prasad-web-dev.herokuapp.com/assignment/
